@@ -1,0 +1,1127 @@
+Read 40 queries.
+Using Bao: True
+Executing queries using PG optimizer for initial training
+x x 1637722773.1455944 sample_queries/q33_2a156.sql 11.28224229812622 PG
+x x 1637722779.780346 sample_queries/q11_17e.sql 6.634612083435059 PG
+x x 1637722785.5835876 sample_queries/q20_24b.sql 5.8031275272369385 PG
+x x 1637722822.584454 sample_queries/q18_7a103.sql 37.000731229782104 PG
+x x 1637722830.3376825 sample_queries/q37_2a1291.sql 7.75312352180481 PG
+x x 1637722841.6475148 sample_queries/q35_1a1508.sql 11.30969786643982 PG
+x x 1637722880.67476 sample_queries/q5_8a423.sql 39.027103424072266 PG
+x x 1637723009.6265624 sample_queries/q13_7a121.sql 128.95164275169373 PG
+x x 1637723020.2146862 sample_queries/q25_13d.sql 10.58798599243164 PG
+x x 1637723026.8721478 sample_queries/q11_17e.sql 6.657336711883545 PG
+x x 1637723063.1281238 sample_queries/q18_7a103.sql 36.255852460861206 PG
+x x 1637723245.3204317 sample_queries/q2_8a82.sql 182.19218277931213 PG
+x x 1637723251.7881656 sample_queries/q11_17e.sql 6.46762228012085 PG
+x x 1637723259.4050422 sample_queries/q17_7a164.sql 7.616748094558716 PG
+x x 1637723270.6732254 sample_queries/q33_2a156.sql 11.268048524856567 PG
+x x 1637723273.2732322 sample_queries/q29_6e.sql 2.599886655807495 PG
+x x 1637723309.9132042 sample_queries/q18_7a103.sql 36.63983678817749 PG
+x x 1637723316.8935225 sample_queries/q31_2a39.sql 6.9801857471466064 PG
+x x 1637723324.2413332 sample_queries/q39_2a2781.sql 7.34763503074646 PG
+x x 1637723329.72727 sample_queries/q10_2a265.sql 5.485776901245117 PG
+x x 1637723336.75624 sample_queries/q39_2a2781.sql 7.028827428817749 PG
+x x 1637723348.0636995 sample_queries/q35_1a1508.sql 11.30733609199524 PG
+x x 1637723446.5402105 sample_queries/q22_8a27.sql 98.4763913154602 PG
+x x 1637723450.577125 sample_queries/q16_26c.sql 4.036799907684326 PG
+x x 1637723459.1908712 sample_queries/q8_6a505.sql 8.613592624664307 PG
+Initial input channels: 10
+Epoch 0 training loss: 0.3816589266061783
+Epoch 15 training loss: 0.0132209537550807
+Epoch 30 training loss: 0.0022344482131302357
+Epoch 45 training loss: 0.0016936080064624548
+Stopped training from convergence condition at epoch 46
+Old model # regressions: 0 regression amount: 0
+New model # regressions: 0 regression amount: 0
+New model had no regressions.
+0 0 1637723687.3729153 sample_queries/q22_8a27.sql 221.83977150917053
+0 1 1637723775.0006964 sample_queries/q13_7a121.sql 87.62760972976685
+0 2 1637723862.3834043 sample_queries/q13_7a121.sql 87.38254284858704
+0 3 1637723871.7722557 sample_queries/q40_2a8120.sql 9.388555765151978
+0 4 1637723921.9027503 sample_queries/q32_2a493.sql 50.130351543426514
+0 5 1637723930.7992032 sample_queries/q39_2a2781.sql 8.896279096603394
+0 6 1637723939.3091762 sample_queries/q37_2a1291.sql 8.50977897644043
+0 7 1637723942.0210388 sample_queries/q29_6e.sql 2.711684226989746
+0 8 1637723951.8624523 sample_queries/q8_6a505.sql 9.84127426147461
+0 9 1637723953.5960054 sample_queries/q24_32a.sql 1.7333924770355225
+0 10 1637723957.9707854 sample_queries/q30_18c.sql 4.374629259109497
+0 11 1637723967.4114587 sample_queries/q40_2a8120.sql 9.44054126739502
+0 12 1637724016.5801198 sample_queries/q32_2a493.sql 49.16848349571228
+0 13 1637724027.141084 sample_queries/q4_8a122.sql 10.560777187347412
+0 14 1637724130.4513314 sample_queries/q31_2a39.sql 103.31010174751282
+0 15 1637724209.4275079 sample_queries/q36_7a136.sql 78.97599649429321
+0 16 1637724216.093013 sample_queries/q11_17e.sql 6.665360450744629
+ERROR:  canceling statement due to statement timeout
+
+0 17 1637724517.4036357 sample_queries/q1_8a463.sql 301.31030797958374
+0 18 1637724534.4863384 sample_queries/q20_24b.sql 17.08251953125
+0 19 1637724621.8611765 sample_queries/q13_7a121.sql 87.37469983100891
+ERROR:  canceling statement due to statement timeout
+
+0 20 1637724923.1237922 sample_queries/q1_8a463.sql 301.2622685432434
+ERROR:  canceling statement due to statement timeout
+
+0 21 1637725224.5717838 sample_queries/q14_6a349.sql 301.4476668834686
+0 22 1637725242.2091808 sample_queries/q20_24b.sql 17.63723397254944
+0 23 1637725447.3496895 sample_queries/q33_2a156.sql 205.1403784751892
+0 24 1637725504.738966 sample_queries/q23_19d.sql 57.38909983634949
+Initial input channels: 10
+Epoch 0 training loss: 0.2549385589857896
+Epoch 15 training loss: 0.02314528605590264
+Epoch 30 training loss: 0.0041723371638605995
+Epoch 45 training loss: 0.0011422088524947565
+Stopped training from convergence condition at epoch 47
+Old model # regressions: 0 regression amount: 0
+New model # regressions: 0 regression amount: 0
+New model had no regressions.
+ERROR:  canceling statement due to statement timeout
+
+1 0 1637725815.5183468 sample_queries/q23_19d.sql 301.1101932525635
+ERROR:  canceling statement due to statement timeout
+
+1 1 1637726116.6323214 sample_queries/q18_7a103.sql 301.1136224269867
+ERROR:  canceling statement due to statement timeout
+
+1 2 1637726418.2404847 sample_queries/q19_2a471.sql 301.6078088283539
+ERROR:  canceling statement due to statement timeout
+
+1 3 1637726719.3867693 sample_queries/q7_7a48.sql 301.1459376811981
+ERROR:  canceling statement due to statement timeout
+
+1 4 1637727021.030091 sample_queries/q33_2a156.sql 301.64298605918884
+ERROR:  canceling statement due to statement timeout
+
+1 5 1637727322.5443242 sample_queries/q32_2a493.sql 301.5138773918152
+1 6 1637727327.999209 sample_queries/q16_26c.sql 5.454730272293091
+ERROR:  canceling statement due to statement timeout
+
+1 7 1637727629.5030916 sample_queries/q37_2a1291.sql 301.5035283565521
+1 8 1637727635.3100946 sample_queries/q16_26c.sql 5.806850433349609
+1 9 1637727636.5384984 sample_queries/q24_32a.sql 1.228264331817627
+ERROR:  canceling statement due to statement timeout
+
+1 10 1637727937.76455 sample_queries/q9_5a48.sql 301.22569012641907
+ERROR:  canceling statement due to statement timeout
+
+1 11 1637728239.2509243 sample_queries/q33_2a156.sql 301.4860074520111
+1 12 1637728243.520401 sample_queries/q30_18c.sql 4.2692649364471436
+1 13 1637728255.0304186 sample_queries/q35_1a1508.sql 11.509855031967163
+ERROR:  canceling statement due to statement timeout
+
+1 14 1637728556.7297232 sample_queries/q40_2a8120.sql 301.6989994049072
+ERROR:  canceling statement due to statement timeout
+
+1 15 1637728858.7203448 sample_queries/q38_2a1870.sql 301.99030566215515
+ERROR:  canceling statement due to statement timeout
+
+1 16 1637729159.9442825 sample_queries/q1_8a463.sql 301.22359585762024
+ERROR:  canceling statement due to statement timeout
+
+1 17 1637729461.1627195 sample_queries/q11_17e.sql 301.2181193828583
+ERROR:  canceling statement due to statement timeout
+
+1 18 1637729762.3215003 sample_queries/q21_2a396.sql 301.15837264060974
+ERROR:  canceling statement due to statement timeout
+
+1 19 1637730064.1972833 sample_queries/q19_2a471.sql 301.87541580200195
+ERROR:  canceling statement due to statement timeout
+
+1 20 1637730365.350298 sample_queries/q18_7a103.sql 301.1525776386261
+ERROR:  canceling statement due to statement timeout
+
+1 21 1637730666.4833276 sample_queries/q7_7a48.sql 301.13263463974
+ERROR:  canceling statement due to statement timeout
+
+1 22 1637730967.7971632 sample_queries/q5_8a423.sql 301.313517332077
+ERROR:  canceling statement due to statement timeout
+
+1 23 1637731269.1302779 sample_queries/q21_2a396.sql 301.3327839374542
+1 24 1637731274.9007788 sample_queries/q34_1a275.sql 5.770350456237793
+Initial input channels: 10
+Epoch 0 training loss: 0.29101636447012424
+Epoch 15 training loss: 0.01625133294146508
+Epoch 30 training loss: 0.0034114609006792307
+Stopped training from convergence condition at epoch 41
+Old model # regressions: 0 regression amount: 0
+New model # regressions: 0 regression amount: 0
+New model had no regressions.
+2 0 1637731284.962316 sample_queries/q24_32a.sql 1.3199498653411865
+2 1 1637731294.1992948 sample_queries/q6_16b.sql 9.236822128295898
+2 2 1637731297.4858677 sample_queries/q27_3c.sql 3.286428928375244
+2 3 1637731306.264649 sample_queries/q19_2a471.sql 8.778590202331543
+ERROR:  canceling statement due to statement timeout
+
+2 4 1637731607.4547355 sample_queries/q1_8a463.sql 301.1897430419922
+2 5 1637731611.8559759 sample_queries/q30_18c.sql 4.401066780090332
+2 6 1637731620.0878308 sample_queries/q19_2a471.sql 8.231724739074707
+2 7 1637731628.1594856 sample_queries/q31_2a39.sql 8.071516513824463
+ERROR:  canceling statement due to statement timeout
+
+2 8 1637731929.5313995 sample_queries/q5_8a423.sql 301.37159991264343
+2 9 1637731931.2004192 sample_queries/q24_32a.sql 1.6688575744628906
+ERROR:  canceling statement due to statement timeout
+
+2 10 1637732232.283949 sample_queries/q18_7a103.sql 301.0831940174103
+ERROR:  canceling statement due to statement timeout
+
+2 11 1637732533.5158315 sample_queries/q9_5a48.sql 301.23151421546936
+ERROR:  canceling statement due to statement timeout
+
+2 12 1637732834.797381 sample_queries/q2_8a82.sql 301.2811875343323
+ERROR:  canceling statement due to statement timeout
+
+2 13 1637733135.952286 sample_queries/q13_7a121.sql 301.1545934677124
+ERROR:  canceling statement due to statement timeout
+
+2 14 1637733437.176376 sample_queries/q11_17e.sql 301.2237672805786
+ERROR:  canceling statement due to statement timeout
+
+2 15 1637733738.561241 sample_queries/q14_6a349.sql 301.38452672958374
+2 16 1637733751.0213418 sample_queries/q33_2a156.sql 12.459941625595093
+2 17 1637733759.9378145 sample_queries/q38_2a1870.sql 8.916272401809692
+ERROR:  canceling statement due to statement timeout
+
+2 18 1637734061.010866 sample_queries/q25_13d.sql 301.07254242897034
+2 19 1637734067.774847 sample_queries/q12_17a.sql 6.763832330703735
+2 20 1637734069.0687263 sample_queries/q24_32a.sql 1.293717622756958
+ERROR:  canceling statement due to statement timeout
+
+2 21 1637734370.2863479 sample_queries/q9_5a48.sql 301.21724224090576
+2 22 1637734372.8337264 sample_queries/q29_6e.sql 2.54719614982605
+2 23 1637734382.6151512 sample_queries/q8_6a505.sql 9.781257390975952
+2 24 1637734394.3628094 sample_queries/q4_8a122.sql 11.747511386871338
+Initial input channels: 10
+Epoch 0 training loss: 0.36042328029870985
+Epoch 15 training loss: 0.020183893200010062
+Epoch 30 training loss: 0.01135780494660139
+Epoch 45 training loss: 0.002997438982129097
+Epoch 60 training loss: 0.001447073381859809
+Stopped training from convergence condition at epoch 66
+Old model # regressions: 0 regression amount: 0
+New model # regressions: 0 regression amount: 0
+New model had no regressions.
+ERROR:  canceling statement due to statement timeout
+
+3 0 1637734711.5337286 sample_queries/q10_2a265.sql 301.15012860298157
+ERROR:  canceling statement due to statement timeout
+
+3 1 1637735012.6628873 sample_queries/q36_7a136.sql 301.1287889480591
+ERROR:  canceling statement due to statement timeout
+
+3 2 1637735313.9373474 sample_queries/q35_1a1508.sql 301.2741060256958
+3 3 1637735322.7957716 sample_queries/q29_6e.sql 8.85825490951538
+ERROR:  canceling statement due to statement timeout
+
+3 4 1637735624.4962137 sample_queries/q19_2a471.sql 301.7001359462738
+ERROR:  canceling statement due to statement timeout
+
+3 5 1637735925.8777027 sample_queries/q33_2a156.sql 301.3811614513397
+ERROR:  canceling statement due to statement timeout
+
+3 6 1637736227.3133337 sample_queries/q14_6a349.sql 301.43525791168213
+ERROR:  canceling statement due to statement timeout
+
+3 7 1637736528.7817166 sample_queries/q26_2a274.sql 301.4680383205414
+3 8 1637736532.657168 sample_queries/q27_3c.sql 3.8752760887145996
+ERROR:  canceling statement due to statement timeout
+
+3 9 1637736833.8491786 sample_queries/q8_6a505.sql 301.1916844844818
+ERROR:  canceling statement due to statement timeout
+
+3 10 1637737135.2023768 sample_queries/q5_8a423.sql 301.35286831855774
+ERROR:  canceling statement due to statement timeout
+
+3 11 1637737436.934308 sample_queries/q19_2a471.sql 301.7315797805786
+ERROR:  canceling statement due to statement timeout
+
+3 12 1637737738.3398898 sample_queries/q2_8a82.sql 301.40521264076233
+ERROR:  canceling statement due to statement timeout
+
+3 13 1637738039.4481695 sample_queries/q17_7a164.sql 301.1079297065735
+3 14 1637738057.83776 sample_queries/q6_16b.sql 18.389416933059692
+ERROR:  canceling statement due to statement timeout
+
+3 15 1637738359.1003566 sample_queries/q4_8a122.sql 301.262268781662
+ERROR:  canceling statement due to statement timeout
+
+3 16 1637738660.2303598 sample_queries/q20_24b.sql 301.12964725494385
+ERROR:  canceling statement due to statement timeout
+
+3 17 1637738961.5528507 sample_queries/q33_2a156.sql 301.3221764564514
+ERROR:  canceling statement due to statement timeout
+
+3 18 1637739262.9796011 sample_queries/q32_2a493.sql 301.42638635635376
+ERROR:  canceling statement due to statement timeout
+
+3 19 1637739564.0405946 sample_queries/q16_26c.sql 301.0606520175934
+3 20 1637739578.8732603 sample_queries/q3_7a99.sql 14.832466125488281
+3 21 1637739587.36225 sample_queries/q29_6e.sql 8.48884391784668
+ERROR:  canceling statement due to statement timeout
+
+3 22 1637739888.846882 sample_queries/q38_2a1870.sql 301.48432898521423
+3 23 1637739897.3183358 sample_queries/q29_6e.sql 8.471286535263062
+ERROR:  canceling statement due to statement timeout
+
+3 24 1637740198.581972 sample_queries/q10_2a265.sql 301.263267993927
+Initial input channels: 10
+Epoch 0 training loss: 0.13854339867830276
+Epoch 15 training loss: 0.010516545828431844
+Epoch 30 training loss: 0.0013692413456737995
+Stopped training from convergence condition at epoch 36
+Old model # regressions: 0 regression amount: 0
+New model # regressions: 0 regression amount: 0
+New model had no regressions.
+ERROR:  canceling statement due to statement timeout
+
+4 0 1637740510.4524152 sample_queries/q21_2a396.sql 301.350962638855
+ERROR:  canceling statement due to statement timeout
+
+4 1 1637740811.8202865 sample_queries/q10_2a265.sql 301.36750197410583
+ERROR:  canceling statement due to statement timeout
+
+4 2 1637741113.0371552 sample_queries/q7_7a48.sql 301.21647095680237
+ERROR:  canceling statement due to statement timeout
+
+4 3 1637741414.366437 sample_queries/q5_8a423.sql 301.3288948535919
+ERROR:  canceling statement due to statement timeout
+
+4 4 1637741716.2647328 sample_queries/q40_2a8120.sql 301.8979022502899
+ERROR:  canceling statement due to statement timeout
+
+4 5 1637742017.631655 sample_queries/q21_2a396.sql 301.36658239364624
+4 6 1637742030.239882 sample_queries/q12_17a.sql 12.608050346374512
+ERROR:  canceling statement due to statement timeout
+
+4 7 1637742331.6890163 sample_queries/q5_8a423.sql 301.44879364967346
+ERROR:  canceling statement due to statement timeout
+
+4 8 1637742632.9458933 sample_queries/q7_7a48.sql 301.25654649734497
+ERROR:  canceling statement due to statement timeout
+
+4 9 1637742934.1222284 sample_queries/q13_7a121.sql 301.1759572029114
+ERROR:  canceling statement due to statement timeout
+
+4 10 1637743235.356305 sample_queries/q28_13a.sql 301.23374223709106
+4 11 1637743247.5242388 sample_queries/q12_17a.sql 12.167771339416504
+ERROR:  canceling statement due to statement timeout
+
+4 12 1637743548.6201992 sample_queries/q3_7a99.sql 301.09558176994324
+ERROR:  canceling statement due to statement timeout
+
+4 13 1637743849.7130418 sample_queries/q3_7a99.sql 301.0925028324127
+4 14 1637743853.6831908 sample_queries/q15_18a.sql 3.9699692726135254
+ERROR:  canceling statement due to statement timeout
+
+4 15 1637744154.9092667 sample_queries/q28_13a.sql 301.22575783729553
+4 16 1637744157.58554 sample_queries/q29_6e.sql 2.67608642578125
+ERROR:  canceling statement due to statement timeout
+
+4 17 1637744459.3376477 sample_queries/q19_2a471.sql 301.7517399787903
+4 18 1637744469.6227918 sample_queries/q4_8a122.sql 10.28499960899353
+4 19 1637744480.8615181 sample_queries/q25_13d.sql 11.238582134246826
+ERROR:  canceling statement due to statement timeout
+
+4 20 1637744781.9644938 sample_queries/q18_7a103.sql 301.10261940956116
+4 21 1637744784.7199874 sample_queries/q29_6e.sql 2.755338668823242
+ERROR:  canceling statement due to statement timeout
+
+4 22 1637745086.478383 sample_queries/q37_2a1291.sql 301.7580897808075
+ERROR:  canceling statement due to statement timeout
+
+4 23 1637745387.5881925 sample_queries/q18_7a103.sql 301.10944747924805
+ERROR:  canceling statement due to statement timeout
+
+4 24 1637745688.8774385 sample_queries/q21_2a396.sql 301.2888996601105
+Initial input channels: 10
+Epoch 0 training loss: 0.42503368978699047
+Epoch 15 training loss: 0.01671327417716384
+Epoch 30 training loss: 0.00498736275282378
+Stopped training from convergence condition at epoch 40
+Old model # regressions: 0 regression amount: 0
+New model # regressions: 0 regression amount: 0
+New model had no regressions.
+ERROR:  canceling statement due to statement timeout
+
+5 0 1637746003.4055984 sample_queries/q9_5a48.sql 301.0650498867035
+ERROR:  canceling statement due to statement timeout
+
+5 1 1637746304.741543 sample_queries/q33_2a156.sql 301.3355827331543
+ERROR:  canceling statement due to statement timeout
+
+5 2 1637746606.3241205 sample_queries/q26_2a274.sql 301.5822367668152
+ERROR:  canceling statement due to statement timeout
+
+5 3 1637746907.5757632 sample_queries/q2_8a82.sql 301.25131702423096
+ERROR:  canceling statement due to statement timeout
+
+5 4 1637747208.9640996 sample_queries/q14_6a349.sql 301.3880114555359
+ERROR:  canceling statement due to statement timeout
+
+5 5 1637747510.0641856 sample_queries/q18_7a103.sql 301.0997414588928
+ERROR:  canceling statement due to statement timeout
+
+5 6 1637747811.4359646 sample_queries/q22_8a27.sql 301.3713788986206
+ERROR:  canceling statement due to statement timeout
+
+5 7 1637748112.700057 sample_queries/q31_2a39.sql 301.26376700401306
+ERROR:  canceling statement due to statement timeout
+
+5 8 1637748413.97618 sample_queries/q1_8a463.sql 301.27575039863586
+ERROR:  canceling statement due to statement timeout
+
+5 9 1637748715.092721 sample_queries/q18_7a103.sql 301.11617255210876
+5 10 1637748721.8842669 sample_queries/q12_17a.sql 6.79136061668396
+ERROR:  canceling statement due to statement timeout
+
+5 11 1637749023.3054276 sample_queries/q33_2a156.sql 301.42077445983887
+ERROR:  canceling statement due to statement timeout
+
+5 12 1637749324.6772444 sample_queries/q1_8a463.sql 301.37141156196594
+5 13 1637749333.846758 sample_queries/q6_16b.sql 9.169333934783936
+ERROR:  canceling statement due to statement timeout
+
+5 14 1637749635.0384839 sample_queries/q4_8a122.sql 301.19140362739563
+5 15 1637749641.8710372 sample_queries/q12_17a.sql 6.832401514053345
+ERROR:  canceling statement due to statement timeout
+
+5 16 1637749943.200574 sample_queries/q1_8a463.sql 301.32924604415894
+5 17 1637749954.5115592 sample_queries/q34_1a275.sql 11.310832023620605
+ERROR:  canceling statement due to statement timeout
+
+5 18 1637750255.6141431 sample_queries/q18_7a103.sql 301.1022605895996
+ERROR:  canceling statement due to statement timeout
+
+5 19 1637750556.655423 sample_queries/q15_18a.sql 301.0409655570984
+ERROR:  canceling statement due to statement timeout
+
+5 20 1637750857.8407903 sample_queries/q7_7a48.sql 301.1849584579468
+ERROR:  canceling statement due to statement timeout
+
+5 21 1637751158.9642303 sample_queries/q30_18c.sql 301.12315821647644
+ERROR:  canceling statement due to statement timeout
+
+5 22 1637751459.9900494 sample_queries/q27_3c.sql 301.0253620147705
+ERROR:  canceling statement due to statement timeout
+
+5 23 1637751761.7060907 sample_queries/q38_2a1870.sql 301.71567964553833
+ERROR:  canceling statement due to statement timeout
+
+5 24 1637752063.4748728 sample_queries/q39_2a2781.sql 301.76843667030334
+Initial input channels: 10
+Epoch 0 training loss: 0.5021402003864447
+Epoch 15 training loss: 0.02420951798558235
+Stopped training from convergence condition at epoch 29
+Old model # regressions: 0 regression amount: 0
+New model # regressions: 0 regression amount: 0
+New model had no regressions.
+ERROR:  canceling statement due to statement timeout
+
+6 0 1637752374.589542 sample_queries/q17_7a164.sql 301.0730490684509
+ERROR:  canceling statement due to statement timeout
+
+6 1 1637752675.9728856 sample_queries/q13_7a121.sql 301.3830552101135
+6 2 1637752690.9913023 sample_queries/q26_2a274.sql 15.018298625946045
+ERROR:  canceling statement due to statement timeout
+
+6 3 1637752992.1225243 sample_queries/q25_13d.sql 301.1309084892273
+ERROR:  canceling statement due to statement timeout
+
+6 4 1637753293.1835392 sample_queries/q27_3c.sql 301.06068181991577
+6 5 1637753301.581771 sample_queries/q37_2a1291.sql 8.398059844970703
+6 6 1637753313.5246327 sample_queries/q34_1a275.sql 11.94272756576538
+ERROR:  canceling statement due to statement timeout
+
+6 7 1637753614.7905607 sample_queries/q9_5a48.sql 301.26558232307434
+ERROR:  canceling statement due to statement timeout
+
+6 8 1637753916.146154 sample_queries/q13_7a121.sql 301.35518884658813
+ERROR:  canceling statement due to statement timeout
+
+6 9 1637754217.2104454 sample_queries/q25_13d.sql 301.0639281272888
+ERROR:  canceling statement due to statement timeout
+
+6 10 1637754518.5654259 sample_queries/q22_8a27.sql 301.3546175956726
+ERROR:  canceling statement due to statement timeout
+
+6 11 1637754819.8141456 sample_queries/q4_8a122.sql 301.2483298778534
+ERROR:  canceling statement due to statement timeout
+
+6 12 1637755120.9841397 sample_queries/q1_8a463.sql 301.16965198516846
+ERROR:  canceling statement due to statement timeout
+
+6 13 1637755422.0605698 sample_queries/q17_7a164.sql 301.0760667324066
+6 14 1637755436.7022724 sample_queries/q26_2a274.sql 14.641534328460693
+ERROR:  canceling statement due to statement timeout
+
+6 15 1637755737.8365932 sample_queries/q25_13d.sql 301.1339683532715
+6 16 1637755750.3153782 sample_queries/q20_24b.sql 12.478613138198853
+ERROR:  canceling statement due to statement timeout
+
+6 17 1637756051.5262725 sample_queries/q1_8a463.sql 301.2105736732483
+6 18 1637756060.4993107 sample_queries/q6_16b.sql 8.972881317138672
+6 19 1637756075.3961055 sample_queries/q26_2a274.sql 14.896663665771484
+ERROR:  canceling statement due to statement timeout
+
+6 20 1637756376.6591034 sample_queries/q4_8a122.sql 301.2626848220825
+6 21 1637756380.9992132 sample_queries/q30_18c.sql 4.339956283569336
+6 22 1637756387.7195303 sample_queries/q12_17a.sql 6.7201244831085205
+ERROR:  canceling statement due to statement timeout
+
+6 23 1637756688.9310153 sample_queries/q9_5a48.sql 301.2111692428589
+ERROR:  canceling statement due to statement timeout
+
+6 24 1637756990.3074977 sample_queries/q40_2a8120.sql 301.3762311935425
+Initial input channels: 10
+Epoch 0 training loss: 0.3571343372265498
+Epoch 15 training loss: 0.017934001050889492
+Epoch 30 training loss: 0.009365983384971818
+Epoch 45 training loss: 0.0021565203399707875
+Stopped training from convergence condition at epoch 53
+Old model # regressions: 0 regression amount: 0
+New model # regressions: 0 regression amount: 0
+New model had no regressions.
+7 0 1637757017.3220665 sample_queries/q8_6a505.sql 9.74630618095398
+ERROR:  canceling statement due to statement timeout
+
+7 1 1637757318.5135772 sample_queries/q7_7a48.sql 301.191123008728
+7 2 1637757327.8762639 sample_queries/q40_2a8120.sql 9.362520217895508
+7 3 1637757333.1885884 sample_queries/q16_26c.sql 5.3121888637542725
+7 4 1637757339.6071084 sample_queries/q28_13a.sql 6.418402194976807
+ERROR:  canceling statement due to statement timeout
+
+7 5 1637757640.715656 sample_queries/q18_7a103.sql 301.1082081794739
+7 6 1637757651.5821612 sample_queries/q25_13d.sql 10.866334676742554
+7 7 1637757658.197377 sample_queries/q12_17a.sql 6.615051031112671
+7 8 1637757659.444329 sample_queries/q24_32a.sql 1.2467925548553467
+ERROR:  canceling statement due to statement timeout
+
+7 9 1637757960.778239 sample_queries/q9_5a48.sql 301.33354926109314
+7 10 1637757968.9712048 sample_queries/q19_2a471.sql 8.192769289016724
+7 11 1637757977.2529323 sample_queries/q38_2a1870.sql 8.281599760055542
+7 12 1637757981.18726 sample_queries/q27_3c.sql 3.9341917037963867
+7 13 1637757992.6492097 sample_queries/q25_13d.sql 11.461794137954712
+7 14 1637758002.8509877 sample_queries/q8_6a505.sql 10.201617002487183
+ERROR:  canceling statement due to statement timeout
+
+7 15 1637758304.0798528 sample_queries/q9_5a48.sql 301.22851848602295
+7 16 1637758308.5723946 sample_queries/q30_18c.sql 4.4923882484436035
+7 17 1637758325.0020425 sample_queries/q36_7a136.sql 16.429499864578247
+7 18 1637758330.5697055 sample_queries/q16_26c.sql 5.5675084590911865
+7 19 1637758338.0090883 sample_queries/q20_24b.sql 7.439281225204468
+7 20 1637758347.9011743 sample_queries/q8_6a505.sql 9.89196491241455
+7 21 1637758355.8616018 sample_queries/q31_2a39.sql 7.960292816162109
+7 22 1637758358.4189398 sample_queries/q29_6e.sql 2.5571813583374023
+7 23 1637758366.8084595 sample_queries/q37_2a1291.sql 8.38936996459961
+7 24 1637758373.6263142 sample_queries/q12_17a.sql 6.817735433578491
+Initial input channels: 10
+Epoch 0 training loss: 0.44278550148010254
+Epoch 15 training loss: 0.009493753510469105
+Epoch 30 training loss: 0.0024713017264730297
+Epoch 45 training loss: 0.0007700192036281805
+Stopped training from convergence condition at epoch 49
+Old model # regressions: 0 regression amount: 0
+New model # regressions: 0 regression amount: 0
+New model had no regressions.
+8 0 1637758402.7193654 sample_queries/q31_2a39.sql 7.930970907211304
+ERROR:  canceling statement due to statement timeout
+
+8 1 1637758703.9362605 sample_queries/q2_8a82.sql 301.21651577949524
+ERROR:  canceling statement due to statement timeout
+
+8 2 1637759005.374314 sample_queries/q4_8a122.sql 301.43741059303284
+ERROR:  canceling statement due to statement timeout
+
+8 3 1637759306.4453714 sample_queries/q16_26c.sql 301.07064843177795
+ERROR:  canceling statement due to statement timeout
+
+8 4 1637759607.640363 sample_queries/q8_6a505.sql 301.1945400238037
+ERROR:  canceling statement due to statement timeout
+
+8 5 1637759908.895961 sample_queries/q13_7a121.sql 301.2553117275238
+ERROR:  canceling statement due to statement timeout
+
+8 6 1637760209.9729393 sample_queries/q17_7a164.sql 301.07672667503357
+8 7 1637760218.1481702 sample_queries/q31_2a39.sql 8.175095319747925
+ERROR:  canceling statement due to statement timeout
+
+8 8 1637760519.393937 sample_queries/q35_1a1508.sql 301.2454092502594
+ERROR:  canceling statement due to statement timeout
+
+8 9 1637760820.5492327 sample_queries/q1_8a463.sql 301.15492248535156
+ERROR:  canceling statement due to statement timeout
+
+8 10 1637761121.94214 sample_queries/q14_6a349.sql 301.3925747871399
+ERROR:  canceling statement due to statement timeout
+
+8 11 1637761423.235814 sample_queries/q5_8a423.sql 301.2933421134949
+ERROR:  canceling statement due to statement timeout
+
+8 12 1637761724.3303304 sample_queries/q1_8a463.sql 301.094290971756
+8 13 1637761732.0627668 sample_queries/q31_2a39.sql 7.732321500778198
+ERROR:  canceling statement due to statement timeout
+
+8 14 1637762033.5473232 sample_queries/q32_2a493.sql 301.48425674438477
+ERROR:  canceling statement due to statement timeout
+
+8 15 1637762334.7550418 sample_queries/q25_13d.sql 301.20741963386536
+8 16 1637762342.691142 sample_queries/q31_2a39.sql 7.935975790023804
+ERROR:  canceling statement due to statement timeout
+
+8 17 1637762643.9655895 sample_queries/q2_8a82.sql 301.2740910053253
+ERROR:  canceling statement due to statement timeout
+
+8 18 1637762945.1010501 sample_queries/q7_7a48.sql 301.135151386261
+ERROR:  canceling statement due to statement timeout
+
+8 19 1637763246.2100158 sample_queries/q18_7a103.sql 301.1086084842682
+ERROR:  canceling statement due to statement timeout
+
+8 20 1637763547.3072073 sample_queries/q36_7a136.sql 301.0968511104584
+ERROR:  canceling statement due to statement timeout
+
+8 21 1637763848.405768 sample_queries/q1_8a463.sql 301.09821939468384
+8 22 1637763849.7032564 sample_queries/q24_32a.sql 1.297339916229248
+8 23 1637763855.7328622 sample_queries/q34_1a275.sql 6.029482364654541
+ERROR:  canceling statement due to statement timeout
+
+8 24 1637764156.8146482 sample_queries/q20_24b.sql 301.0814733505249
+Initial input channels: 10
+Epoch 0 training loss: 0.3797605740837753
+Epoch 15 training loss: 0.009895271476125345
+Epoch 30 training loss: 0.001687671261606738
+Stopped training from convergence condition at epoch 39
+Old model # regressions: 0 regression amount: 0
+New model # regressions: 0 regression amount: 0
+New model had no regressions.
+9 0 1637764180.4451911 sample_queries/q21_2a396.sql 6.376614332199097
+ERROR:  canceling statement due to statement timeout
+
+9 1 1637764481.5220447 sample_queries/q3_7a99.sql 301.076539516449
+9 2 1637764488.3703926 sample_queries/q12_17a.sql 6.848159313201904
+9 3 1637764492.0645282 sample_queries/q27_3c.sql 3.6940159797668457
+9 4 1637764504.4615808 sample_queries/q9_5a48.sql 12.396939754486084
+9 5 1637764516.951479 sample_queries/q9_5a48.sql 12.489752054214478
+9 6 1637764523.7258654 sample_queries/q12_17a.sql 6.774245977401733
+ERROR:  canceling statement due to statement timeout
+
+9 7 1637764824.7625558 sample_queries/q18_7a103.sql 301.0363223552704
+9 8 1637764833.0093894 sample_queries/q19_2a471.sql 8.24669337272644
+ERROR:  canceling statement due to statement timeout
+
+9 9 1637765134.182299 sample_queries/q7_7a48.sql 301.17258048057556
+ERROR:  canceling statement due to statement timeout
+
+9 10 1637765435.5257657 sample_queries/q5_8a423.sql 301.34308195114136
+ERROR:  canceling statement due to statement timeout
+
+9 11 1637765736.8368235 sample_queries/q5_8a423.sql 301.3107500076294
+ERROR:  canceling statement due to statement timeout
+
+9 12 1637766038.076249 sample_queries/q23_19d.sql 301.2391028404236
+9 13 1637766043.4249854 sample_queries/q16_26c.sql 5.348581790924072
+9 14 1637766052.7708302 sample_queries/q40_2a8120.sql 9.345690727233887
+ERROR:  canceling statement due to statement timeout
+
+9 15 1637766353.8959303 sample_queries/q36_7a136.sql 301.12482476234436
+9 16 1637766360.8614104 sample_queries/q32_2a493.sql 6.965335369110107
+9 17 1637766373.2949226 sample_queries/q9_5a48.sql 12.433377504348755
+9 18 1637766379.1331565 sample_queries/q34_1a275.sql 5.838064908981323
+9 19 1637766385.685323 sample_queries/q10_2a265.sql 6.552033424377441
+9 20 1637766394.3681765 sample_queries/q39_2a2781.sql 8.682674646377563
+ERROR:  canceling statement due to statement timeout
+
+9 21 1637766695.4436219 sample_queries/q20_24b.sql 301.07514691352844
+9 22 1637766701.2128165 sample_queries/q34_1a275.sql 5.769056797027588
+ERROR:  canceling statement due to statement timeout
+
+9 23 1637767002.4295385 sample_queries/q7_7a48.sql 301.2164695262909
+9 24 1637767006.081977 sample_queries/q15_18a.sql 3.6522374153137207
+Initial input channels: 10
+Epoch 0 training loss: 0.1347236302163866
+Epoch 15 training loss: 0.005057285746766461
+Epoch 30 training loss: 0.0020092923659831285
+Stopped training from convergence condition at epoch 34
+Old model # regressions: 0 regression amount: 0
+New model # regressions: 0 regression amount: 0
+New model had no regressions.
+ERROR:  canceling statement due to statement timeout
+
+10 0 1637767323.37069 sample_queries/q14_6a349.sql 301.27066683769226
+ERROR:  canceling statement due to statement timeout
+
+10 1 1637767624.605622 sample_queries/q14_6a349.sql 301.23460817337036
+10 2 1637767628.8815281 sample_queries/q30_18c.sql 4.275756597518921
+ERROR:  canceling statement due to statement timeout
+
+10 3 1637767930.5569172 sample_queries/q19_2a471.sql 301.67510652542114
+10 4 1637767937.4270365 sample_queries/q32_2a493.sql 6.869996547698975
+ERROR:  canceling statement due to statement timeout
+
+10 5 1637768238.5138268 sample_queries/q36_7a136.sql 301.0864682197571
+ERROR:  canceling statement due to statement timeout
+
+10 6 1637768539.6258473 sample_queries/q18_7a103.sql 301.11152744293213
+10 7 1637768552.0253427 sample_queries/q33_2a156.sql 12.399264097213745
+ERROR:  canceling statement due to statement timeout
+
+10 8 1637768853.7177558 sample_queries/q19_2a471.sql 301.69212770462036
+10 9 1637768859.6222641 sample_queries/q28_13a.sql 5.904355764389038
+10 10 1637768865.3292487 sample_queries/q6_16b.sql 5.706829071044922
+ERROR:  canceling statement due to statement timeout
+
+10 11 1637769166.8572633 sample_queries/q40_2a8120.sql 301.527690410614
+ERROR:  canceling statement due to statement timeout
+
+10 12 1637769467.971822 sample_queries/q13_7a121.sql 301.11421728134155
+10 13 1637769474.1052058 sample_queries/q25_13d.sql 6.133227348327637
+ERROR:  canceling statement due to statement timeout
+
+10 14 1637769775.256749 sample_queries/q20_24b.sql 301.15131282806396
+ERROR:  canceling statement due to statement timeout
+
+10 15 1637770076.4329507 sample_queries/q10_2a265.sql 301.1759581565857
+ERROR:  canceling statement due to statement timeout
+
+10 16 1637770377.5621972 sample_queries/q3_7a99.sql 301.12895679473877
+10 17 1637770390.4599662 sample_queries/q33_2a156.sql 12.897632598876953
+ERROR:  canceling statement due to statement timeout
+
+10 18 1637770692.1606953 sample_queries/q19_2a471.sql 301.70033836364746
+ERROR:  canceling statement due to statement timeout
+
+10 19 1637770993.8609986 sample_queries/q37_2a1291.sql 301.69988679885864
+10 20 1637770998.3474693 sample_queries/q30_18c.sql 4.486330509185791
+10 21 1637771012.9474852 sample_queries/q26_2a274.sql 14.599911212921143
+ERROR:  canceling statement due to statement timeout
+
+10 22 1637771314.3103657 sample_queries/q10_2a265.sql 301.362562417984
+ERROR:  canceling statement due to statement timeout
+
+10 23 1637771615.3710048 sample_queries/q13_7a121.sql 301.0603094100952
+ERROR:  canceling statement due to statement timeout
+
+10 24 1637771916.7431517 sample_queries/q5_8a423.sql 301.3717906475067
+Initial input channels: 10
+Epoch 0 training loss: 0.18860828056931495
+Epoch 15 training loss: 0.007839501975104213
+Epoch 30 training loss: 0.005150648287963122
+Stopped training from convergence condition at epoch 31
+Old model # regressions: 0 regression amount: 0
+New model # regressions: 0 regression amount: 0
+New model had no regressions.
+11 0 1637771944.1107008 sample_queries/q6_16b.sql 9.217885255813599
+11 1 1637771946.6633492 sample_queries/q29_6e.sql 2.5524723529815674
+11 2 1637771955.731364 sample_queries/q40_2a8120.sql 9.067890644073486
+11 3 1637771963.7133577 sample_queries/q31_2a39.sql 7.9818456172943115
+11 4 1637771967.442321 sample_queries/q15_18a.sql 3.728806257247925
+11 5 1637771971.081602 sample_queries/q15_18a.sql 3.639148712158203
+11 6 1637771977.498515 sample_queries/q21_2a396.sql 6.4167821407318115
+ERROR:  canceling statement due to statement timeout
+
+11 7 1637772278.820668 sample_queries/q5_8a423.sql 301.3218333721161
+11 8 1637772286.9661117 sample_queries/q38_2a1870.sql 8.14527153968811
+ERROR:  canceling statement due to statement timeout
+
+11 9 1637772588.3383608 sample_queries/q4_8a122.sql 301.3718922138214
+ERROR:  canceling statement due to statement timeout
+
+11 10 1637772889.619365 sample_queries/q5_8a423.sql 301.28071999549866
+ERROR:  canceling statement due to statement timeout
+
+11 11 1637773190.6554084 sample_queries/q18_7a103.sql 301.03575825691223
+ERROR:  canceling statement due to statement timeout
+
+11 12 1637773491.7973948 sample_queries/q1_8a463.sql 301.1416654586792
+11 13 1637773503.5370033 sample_queries/q14_6a349.sql 11.739459753036499
+11 14 1637773511.839548 sample_queries/q38_2a1870.sql 8.302429914474487
+ERROR:  canceling statement due to statement timeout
+
+11 15 1637773813.1723254 sample_queries/q5_8a423.sql 301.33252024650574
+11 16 1637773819.4108303 sample_queries/q25_13d.sql 6.238378047943115
+11 17 1637773826.0507715 sample_queries/q32_2a493.sql 6.639802694320679
+11 18 1637773831.22678 sample_queries/q16_26c.sql 5.175884485244751
+ERROR:  canceling statement due to statement timeout
+
+11 19 1637774132.326081 sample_queries/q7_7a48.sql 301.09892177581787
+ERROR:  canceling statement due to statement timeout
+
+11 20 1637774433.6346827 sample_queries/q4_8a122.sql 301.30828309059143
+ERROR:  canceling statement due to statement timeout
+
+11 21 1637774734.8742867 sample_queries/q9_5a48.sql 301.23917746543884
+11 22 1637774743.4542336 sample_queries/q39_2a2781.sql 8.57978105545044
+ERROR:  canceling statement due to statement timeout
+
+11 23 1637775044.8729053 sample_queries/q5_8a423.sql 301.4183609485626
+11 24 1637775051.2973177 sample_queries/q10_2a265.sql 6.424258470535278
+Initial input channels: 10
+Epoch 0 training loss: 0.16080336141484705
+Epoch 15 training loss: 0.008031319803194492
+Epoch 30 training loss: 0.002630296078595248
+Epoch 45 training loss: 0.00106323768903332
+Stopped training from convergence condition at epoch 47
+Old model # regressions: 0 regression amount: 0
+New model # regressions: 0 regression amount: 0
+New model had no regressions.
+12 0 1637775087.935995 sample_queries/q37_2a1291.sql 8.094096422195435
+ERROR:  canceling statement due to statement timeout
+
+12 1 1637775389.134894 sample_queries/q22_8a27.sql 301.19844126701355
+ERROR:  canceling statement due to statement timeout
+
+12 2 1637775690.2343357 sample_queries/q7_7a48.sql 301.09906697273254
+12 3 1637775698.7654047 sample_queries/q39_2a2781.sql 8.53089189529419
+12 4 1637775705.752098 sample_queries/q4_8a122.sql 6.986562967300415
+12 5 1637775714.1551588 sample_queries/q39_2a2781.sql 8.402954339981079
+12 6 1637775722.7129815 sample_queries/q19_2a471.sql 8.557692050933838
+12 7 1637775731.1712139 sample_queries/q38_2a1870.sql 8.458068132400513
+12 8 1637775742.9944165 sample_queries/q14_6a349.sql 11.82304048538208
+12 9 1637775749.866418 sample_queries/q4_8a122.sql 6.871867895126343
+12 10 1637775756.9423013 sample_queries/q4_8a122.sql 7.075753211975098
+ERROR:  canceling statement due to statement timeout
+
+12 11 1637776057.987389 sample_queries/q18_7a103.sql 301.04474449157715
+12 12 1637776066.247023 sample_queries/q39_2a2781.sql 8.25949501991272
+12 13 1637776069.8584273 sample_queries/q27_3c.sql 3.6112868785858154
+12 14 1637776076.0953906 sample_queries/q21_2a396.sql 6.236822128295898
+12 15 1637776084.1262822 sample_queries/q38_2a1870.sql 8.030770301818848
+ERROR:  canceling statement due to statement timeout
+
+12 16 1637776385.2940936 sample_queries/q1_8a463.sql 301.16746950149536
+12 17 1637776391.3459802 sample_queries/q10_2a265.sql 6.05174446105957
+ERROR:  canceling statement due to statement timeout
+
+12 18 1637776692.389304 sample_queries/q17_7a164.sql 301.04297041893005
+ERROR:  canceling statement due to statement timeout
+
+12 19 1637776993.6033876 sample_queries/q22_8a27.sql 301.2137174606323
+12 20 1637777000.6729536 sample_queries/q4_8a122.sql 7.069257020950317
+12 21 1637777010.6760426 sample_queries/q8_6a505.sql 10.002964496612549
+12 22 1637777017.8448114 sample_queries/q20_24b.sql 7.168593645095825
+12 23 1637777031.0281496 sample_queries/q33_2a156.sql 13.18321418762207
+12 24 1637777032.2483974 sample_queries/q24_32a.sql 1.2200942039489746
+Initial input channels: 10
+Epoch 0 training loss: 0.1605754477592806
+Epoch 15 training loss: 0.006268796743825078
+Stopped training from convergence condition at epoch 29
+Old model # regressions: 0 regression amount: 0
+New model # regressions: 0 regression amount: 0
+New model had no regressions.
+ERROR:  canceling statement due to statement timeout
+
+13 0 1637777352.7223926 sample_queries/q9_5a48.sql 301.1459012031555
+13 1 1637777355.8956857 sample_queries/q29_6e.sql 3.172912359237671
+ERROR:  canceling statement due to statement timeout
+
+13 2 1637777657.0993035 sample_queries/q7_7a48.sql 301.2031590938568
+ERROR:  canceling statement due to statement timeout
+
+13 3 1637777958.2350006 sample_queries/q14_6a349.sql 301.13529682159424
+ERROR:  canceling statement due to statement timeout
+
+13 4 1637778259.4482188 sample_queries/q8_6a505.sql 301.2128527164459
+ERROR:  canceling statement due to statement timeout
+
+13 5 1637778560.534282 sample_queries/q17_7a164.sql 301.0855236053467
+ERROR:  canceling statement due to statement timeout
+
+13 6 1637778861.748598 sample_queries/q8_6a505.sql 301.21392583847046
+ERROR:  canceling statement due to statement timeout
+
+13 7 1637779163.4425287 sample_queries/q19_2a471.sql 301.69339632987976
+ERROR:  canceling statement due to statement timeout
+
+13 8 1637779464.6286938 sample_queries/q14_6a349.sql 301.1857964992523
+13 9 1637779479.4335163 sample_queries/q26_2a274.sql 14.80465316772461
+ERROR:  canceling statement due to statement timeout
+
+13 10 1637779781.222212 sample_queries/q37_2a1291.sql 301.78821420669556
+13 11 1637779787.4644616 sample_queries/q21_2a396.sql 6.242110252380371
+13 12 1637779794.4883819 sample_queries/q32_2a493.sql 7.02372670173645
+ERROR:  canceling statement due to statement timeout
+
+13 13 1637780095.8636997 sample_queries/q2_8a82.sql 301.3747773170471
+13 14 1637780097.1512105 sample_queries/q24_32a.sql 1.2872788906097412
+13 15 1637780105.5672698 sample_queries/q31_2a39.sql 8.415899991989136
+ERROR:  canceling statement due to statement timeout
+
+13 16 1637780407.3628118 sample_queries/q19_2a471.sql 301.79515385627747
+ERROR:  canceling statement due to statement timeout
+
+13 17 1637780708.4910066 sample_queries/q36_7a136.sql 301.1277434825897
+13 18 1637780715.256586 sample_queries/q10_2a265.sql 6.765187501907349
+ERROR:  canceling statement due to statement timeout
+
+13 19 1637781016.433569 sample_queries/q7_7a48.sql 301.1766278743744
+13 20 1637781019.4208179 sample_queries/q29_6e.sql 2.9871060848236084
+ERROR:  canceling statement due to statement timeout
+
+13 21 1637781320.5440948 sample_queries/q36_7a136.sql 301.1229498386383
+ERROR:  canceling statement due to statement timeout
+
+13 22 1637781622.5220091 sample_queries/q37_2a1291.sql 301.9775376319885
+13 23 1637781628.4714797 sample_queries/q34_1a275.sql 5.949322462081909
+13 24 1637781636.4562523 sample_queries/q23_19d.sql 7.984558343887329
+Initial input channels: 10
+Epoch 0 training loss: 0.14892733989593884
+Epoch 15 training loss: 0.008430822771818688
+Epoch 30 training loss: 0.00294507733390977
+Epoch 45 training loss: 0.001473826128252161
+Stopped training from convergence condition at epoch 45
+Old model # regressions: 0 regression amount: 0
+New model # regressions: 0 regression amount: 0
+New model had no regressions.
+14 0 1637781669.0529282 sample_queries/q12_17a.sql 4.007048845291138
+14 1 1637781675.1160517 sample_queries/q34_1a275.sql 6.062958717346191
+ERROR:  canceling statement due to statement timeout
+
+14 2 1637781976.2208798 sample_queries/q22_8a27.sql 301.104553937912
+ERROR:  canceling statement due to statement timeout
+
+14 3 1637782277.5893333 sample_queries/q21_2a396.sql 301.3679840564728
+ERROR:  canceling statement due to statement timeout
+
+14 4 1637782578.7764301 sample_queries/q40_2a8120.sql 301.1866466999054
+ERROR:  canceling statement due to statement timeout
+
+14 5 1637782879.8380136 sample_queries/q36_7a136.sql 301.06124448776245
+ERROR:  canceling statement due to statement timeout
+
+14 6 1637783180.948544 sample_queries/q21_2a396.sql 301.1101236343384
+ERROR:  canceling statement due to statement timeout
+
+14 7 1637783482.3018506 sample_queries/q21_2a396.sql 301.3529243469238
+ERROR:  canceling statement due to statement timeout
+
+14 8 1637783783.4582827 sample_queries/q25_13d.sql 301.1558539867401
+ERROR:  canceling statement due to statement timeout
+
+14 9 1637784084.6200516 sample_queries/q25_13d.sql 301.1613109111786
+ERROR:  canceling statement due to statement timeout
+
+14 10 1637784385.7461274 sample_queries/q20_24b.sql 301.1256468296051
+ERROR:  canceling statement due to statement timeout
+
+14 11 1637784686.8239214 sample_queries/q15_18a.sql 301.0774519443512
+ERROR:  canceling statement due to statement timeout
+
+14 12 1637784988.1763167 sample_queries/q25_13d.sql 301.35206174850464
+ERROR:  canceling statement due to statement timeout
+
+14 13 1637785289.3690352 sample_queries/q7_7a48.sql 301.19233679771423
+14 14 1637785300.793555 sample_queries/q35_1a1508.sql 11.424345970153809
+14 15 1637785306.722255 sample_queries/q6_16b.sql 5.928558826446533
+ERROR:  canceling statement due to statement timeout
+
+14 16 1637785608.0273504 sample_queries/q32_2a493.sql 301.3048038482666
+ERROR:  canceling statement due to statement timeout
+
+14 17 1637785909.340141 sample_queries/q21_2a396.sql 301.31241607666016
+14 18 1637785912.355997 sample_queries/q29_6e.sql 3.015669822692871
+14 19 1637785918.912819 sample_queries/q10_2a265.sql 6.556696653366089
+ERROR:  canceling statement due to statement timeout
+
+14 20 1637786220.04132 sample_queries/q20_24b.sql 301.128212928772
+14 21 1637786234.8234975 sample_queries/q26_2a274.sql 14.78201937675476
+14 22 1637786242.7642977 sample_queries/q31_2a39.sql 7.940666437149048
+14 23 1637786248.6343513 sample_queries/q34_1a275.sql 5.869954347610474
+14 24 1637786252.2250628 sample_queries/q27_3c.sql 3.590579032897949
+Initial input channels: 10
+Epoch 0 training loss: 0.15579978835124236
+Epoch 15 training loss: 0.005294755468359933
+Epoch 30 training loss: 0.0024619846461484064
+Epoch 45 training loss: 0.0012593727464823483
+Stopped training from convergence condition at epoch 49
+Old model # regressions: 0 regression amount: 0
+New model # regressions: 0 regression amount: 0
+New model had no regressions.
+15 0 1637786304.7384803 sample_queries/q26_2a274.sql 14.546287775039673
+ERROR:  canceling statement due to statement timeout
+
+15 1 1637786605.8413274 sample_queries/q18_7a103.sql 301.10244584083557
+15 2 1637786637.5855334 sample_queries/q27_3c.sql 31.743977069854736
+ERROR:  canceling statement due to statement timeout
+
+15 3 1637786938.8218834 sample_queries/q6_16b.sql 301.2360329627991
+15 4 1637786957.1107025 sample_queries/q38_2a1870.sql 18.288655757904053
+15 5 1637786962.5576138 sample_queries/q16_26c.sql 5.446790456771851
+ERROR:  canceling statement due to statement timeout
+
+15 6 1637787263.688688 sample_queries/q13_7a121.sql 301.13070726394653
+15 7 1637787276.4626367 sample_queries/q2_8a82.sql 12.773802757263184
+15 8 1637787289.3790646 sample_queries/q33_2a156.sql 12.916298866271973
+ERROR:  canceling statement due to statement timeout
+
+15 9 1637787590.6611254 sample_queries/q22_8a27.sql 301.28175616264343
+15 10 1637787608.5349028 sample_queries/q39_2a2781.sql 17.87363576889038
+ERROR:  canceling statement due to statement timeout
+
+15 11 1637787909.7098484 sample_queries/q3_7a99.sql 301.17457580566406
+15 12 1637787915.3551173 sample_queries/q34_1a275.sql 5.645059108734131
+ERROR:  canceling statement due to statement timeout
+
+15 13 1637788216.4510195 sample_queries/q18_7a103.sql 301.09560203552246
+15 14 1637788225.6403024 sample_queries/q17_7a164.sql 9.189130067825317
+15 15 1637788231.9160883 sample_queries/q10_2a265.sql 6.275623083114624
+15 16 1637788240.6880355 sample_queries/q1_8a463.sql 8.771822929382324
+15 17 1637788246.2479422 sample_queries/q28_13a.sql 5.5597755908966064
+15 18 1637788264.5363061 sample_queries/q40_2a8120.sql 18.288230895996094
+15 19 1637788268.4643986 sample_queries/q12_17a.sql 3.927936553955078
+15 20 1637788274.4670868 sample_queries/q25_13d.sql 6.002552509307861
+15 21 1637788287.3907084 sample_queries/q33_2a156.sql 12.923482179641724
+15 22 1637788297.3781896 sample_queries/q17_7a164.sql 9.987330913543701
+15 23 1637788309.029252 sample_queries/q35_1a1508.sql 11.650840759277344
+15 24 1637788314.5220292 sample_queries/q28_13a.sql 5.492638826370239
+Initial input channels: 10
+Epoch 0 training loss: 0.20830158636506116
+Epoch 15 training loss: 0.006562348970744226
+Epoch 30 training loss: 0.0030805998207402547
+Epoch 45 training loss: 0.001259487055774246
+Stopped training from convergence condition at epoch 54
+Old model # regressions: 0 regression amount: 0
+New model # regressions: 0 regression amount: 0
+New model had no regressions.
+ERROR:  canceling statement due to statement timeout
+
+16 0 1637788658.1758864 sample_queries/q1_8a463.sql 301.1571698188782
+16 1 1637788664.2073026 sample_queries/q34_1a275.sql 6.031210660934448
+16 2 1637788670.6257253 sample_queries/q10_2a265.sql 6.418273210525513
+ERROR:  canceling statement due to statement timeout
+
+16 3 1637788971.70812 sample_queries/q3_7a99.sql 301.081933259964
+ERROR:  canceling statement due to statement timeout
+
+16 4 1637789272.7696915 sample_queries/q3_7a99.sql 301.0612516403198
+ERROR:  canceling statement due to statement timeout
+
+16 5 1637789574.1004632 sample_queries/q14_6a349.sql 301.3304171562195
+16 6 1637789588.6799088 sample_queries/q26_2a274.sql 14.579309225082397
+ERROR:  canceling statement due to statement timeout
+
+16 7 1637789889.7859907 sample_queries/q17_7a164.sql 301.1057393550873
+ERROR:  canceling statement due to statement timeout
+
+16 8 1637790190.9239867 sample_queries/q8_6a505.sql 301.1376299858093
+ERROR:  canceling statement due to statement timeout
+
+16 9 1637790492.326836 sample_queries/q2_8a82.sql 301.4025228023529
+16 10 1637790496.118902 sample_queries/q12_17a.sql 3.7919178009033203
+ERROR:  canceling statement due to statement timeout
+
+16 11 1637790797.2488756 sample_queries/q1_8a463.sql 301.1296377182007
+16 12 1637790802.9475365 sample_queries/q40_2a8120.sql 5.698507070541382
+16 13 1637790805.3899696 sample_queries/q27_3c.sql 2.4422414302825928
+16 14 1637790810.7912536 sample_queries/q39_2a2781.sql 5.401123285293579
+16 15 1637790816.5238025 sample_queries/q34_1a275.sql 5.732398986816406
+16 16 1637790823.7207026 sample_queries/q9_5a48.sql 7.1967291831970215
+16 17 1637790831.8620794 sample_queries/q31_2a39.sql 8.141213417053223
+ERROR:  canceling statement due to statement timeout
+
+16 18 1637791132.9708736 sample_queries/q8_6a505.sql 301.108478307724
+16 19 1637791156.0923586 sample_queries/q5_8a423.sql 23.121336936950684
+16 20 1637791163.1646078 sample_queries/q32_2a493.sql 7.072120189666748
+ERROR:  canceling statement due to statement timeout
+
+16 21 1637791464.2738364 sample_queries/q36_7a136.sql 301.1088926792145
+ERROR:  canceling statement due to statement timeout
+
+16 22 1637791765.6954424 sample_queries/q2_8a82.sql 301.42122077941895
+16 23 1637791771.5824842 sample_queries/q40_2a8120.sql 5.886895418167114
+16 24 1637791774.4460602 sample_queries/q29_6e.sql 2.863445281982422
+Initial input channels: 10
+Epoch 0 training loss: 0.16252391673624517
+Epoch 15 training loss: 0.006079612020403147
+Epoch 30 training loss: 0.0018322022709374626
+Epoch 45 training loss: 0.0009466641194497545
+Stopped training from convergence condition at epoch 47
+Old model # regressions: 0 regression amount: 0
+New model # regressions: 0 regression amount: 0
+New model had no regressions.
+17 0 1637791818.7118402 sample_queries/q5_8a423.sql 8.823793411254883
+17 1 1637791824.7026544 sample_queries/q37_2a1291.sql 5.990681886672974
+17 2 1637791827.2783685 sample_queries/q27_3c.sql 2.5755929946899414
+17 3 1637791833.1286912 sample_queries/q19_2a471.sql 5.850147008895874
+ERROR:  canceling statement due to statement timeout
+
+17 4 1637792134.280807 sample_queries/q1_8a463.sql 301.1517663002014
+17 5 1637792146.3765721 sample_queries/q33_2a156.sql 12.095617294311523
+17 6 1637792187.0534132 sample_queries/q3_7a99.sql 40.676692485809326
+ERROR:  canceling statement due to statement timeout
+
+17 7 1637792488.3825116 sample_queries/q2_8a82.sql 301.32880997657776
+17 8 1637792500.4351928 sample_queries/q33_2a156.sql 12.052546501159668
+17 9 1637792506.5195146 sample_queries/q19_2a471.sql 6.084193229675293
+ERROR:  canceling statement due to statement timeout
+
+17 10 1637792807.686275 sample_queries/q13_7a121.sql 301.1663727760315
+17 11 1637792814.0734546 sample_queries/q20_24b.sql 6.387039422988892
+17 12 1637792820.2502003 sample_queries/q19_2a471.sql 6.176607847213745
+17 13 1637792826.6343687 sample_queries/q21_2a396.sql 6.384042024612427
+17 14 1637792829.366536 sample_queries/q29_6e.sql 2.731987476348877
+17 15 1637792832.9671414 sample_queries/q15_18a.sql 3.600412607192993
+ERROR:  canceling statement due to statement timeout
+
+17 16 1637793134.1702704 sample_queries/q1_8a463.sql 301.2028329372406
+17 17 1637793146.0168178 sample_queries/q35_1a1508.sql 11.846407413482666
+ERROR:  canceling statement due to statement timeout
+
+17 18 1637793447.0976026 sample_queries/q36_7a136.sql 301.0804579257965
+17 19 1637793450.9043715 sample_queries/q12_17a.sql 3.806610107421875
+17 20 1637793456.9587412 sample_queries/q25_13d.sql 6.054215669631958
+17 21 1637793459.5686193 sample_queries/q29_6e.sql 2.609743595123291
+17 22 1637793465.4919298 sample_queries/q25_13d.sql 5.9231932163238525
+ERROR:  canceling statement due to statement timeout
+
+17 23 1637793766.5733402 sample_queries/q18_7a103.sql 301.08110904693604
+17 24 1637793772.6964025 sample_queries/q25_13d.sql 6.122950077056885
+Initial input channels: 10
+Epoch 0 training loss: 0.34032326005399227
+Epoch 15 training loss: 0.01326895495003555
+Epoch 30 training loss: 0.007067165017360821
+Epoch 45 training loss: 0.003397871620109072
+Stopped training from convergence condition at epoch 48
+Old model # regressions: 0 regression amount: 0
+New model # regressions: 0 regression amount: 0
+New model had no regressions.
+18 0 1637793817.9315767 sample_queries/q6_16b.sql 5.710273742675781
+18 1 1637793826.0791392 sample_queries/q31_2a39.sql 8.147400856018066
+18 2 1637793837.498479 sample_queries/q35_1a1508.sql 11.41922402381897
+ERROR:  canceling statement due to statement timeout
+
+18 3 1637794138.8331509 sample_queries/q4_8a122.sql 301.33416199684143
+ERROR:  canceling statement due to statement timeout
+
+18 4 1637794439.8705907 sample_queries/q3_7a99.sql 301.0371153354645
+18 5 1637794441.020955 sample_queries/q24_32a.sql 1.1502172946929932
+18 6 1637794447.6152942 sample_queries/q10_2a265.sql 6.594193696975708
+18 7 1637794459.5653424 sample_queries/q23_19d.sql 11.949897050857544
+ERROR:  canceling statement due to statement timeout
+
+18 8 1637794760.6456852 sample_queries/q3_7a99.sql 301.0799717903137
+ERROR:  canceling statement due to statement timeout
+
+18 9 1637795061.8720436 sample_queries/q4_8a122.sql 301.22586131095886
+ERROR:  canceling statement due to statement timeout
+
+18 10 1637795362.9702718 sample_queries/q8_6a505.sql 301.0977432727814
+18 11 1637795368.912749 sample_queries/q25_13d.sql 5.942334413528442
+18 12 1637795374.8060691 sample_queries/q37_2a1291.sql 5.893187046051025
+18 13 1637795377.6411376 sample_queries/q29_6e.sql 2.8348350524902344
+18 14 1637795384.5004592 sample_queries/q32_2a493.sql 6.859195709228516
+ERROR:  canceling statement due to statement timeout
+
+18 15 1637795685.5843952 sample_queries/q18_7a103.sql 301.0835645198822
+ERROR:  canceling statement due to statement timeout
+
+18 16 1637795986.6713111 sample_queries/q18_7a103.sql 301.0865979194641
+18 17 1637796001.3681195 sample_queries/q26_2a274.sql 14.69664478302002
+18 18 1637796005.8057134 sample_queries/q11_17e.sql 4.437302827835083
+ERROR:  canceling statement due to statement timeout
+
+18 19 1637796307.0213246 sample_queries/q22_8a27.sql 301.2152531147003
+18 20 1637796318.5293534 sample_queries/q35_1a1508.sql 11.507863521575928
+18 21 1637796324.1110032 sample_queries/q25_13d.sql 5.5815277099609375
+18 22 1637796329.608535 sample_queries/q16_26c.sql 5.497395753860474
+18 23 1637796332.0732121 sample_queries/q27_3c.sql 2.464545726776123
+18 24 1637796336.495899 sample_queries/q15_18a.sql 4.422530174255371
