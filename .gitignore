@@ -5,3 +5,5 @@
 *\#*
 .clangd
 .ipynb*
+job-light-queries/
+util

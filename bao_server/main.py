@@ -32,6 +32,7 @@ class BaoModel:
             return PG_OPTIMIZER_INDEX
 
         # if we do have a model, make predictions for each plan.
+        # arms here are actually plans
         arms = add_buffer_info_to_plans(buffers, arms)
         res = self.__current_model.predict(arms)
         idx = res.argmin()
