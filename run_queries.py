@@ -4,8 +4,8 @@ import sys
 import random
 from time import time, sleep
 
-USE_BAO = True
-# USE_BAO = False
+# USE_BAO = True
+USE_BAO = False
 PG_CONNECTION_STR = "dbname=imdb user=imdb host=localhost"
 
 # https://stackoverflow.com/questions/312443/
