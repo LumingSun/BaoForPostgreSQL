@@ -5,3 +5,5 @@
 *\#*
 .clangd
 .ipynb*
+backend/flaskr/__init__.py
+backend/flaskr/__pycache__/__init__.cpython-38.pyc
