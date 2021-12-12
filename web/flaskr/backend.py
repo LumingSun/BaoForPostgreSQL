@@ -27,9 +27,38 @@ def run_query(sql, bao_select=False, bao_reward=False):
         with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/sql.txt","a") as f:
             f.write(sql+"\n")
         print("Query executed successfully")    
+        
+        return True
 
     except psycopg2.Error as e:
         print(e.pgerror)
         with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/query_result.txt","w") as f:
             f.writelines(e.pgerror)
         
+        return False
+        
+        
+def optimize_query(sql, bao_select=True, bao_reward=True):
+
+    try:
+        conn = psycopg2.connect(PG_CONNECTION_STR)
+        cur = conn.cursor()
+        cur.execute(f"SET enable_bao TO {bao_select or bao_reward}")
+        cur.execute(f"SET enable_bao_selection TO {bao_select}")
+        cur.execute(f"SET enable_bao_rewards TO {bao_reward}")
+        cur.execute("SET bao_num_arms TO 5")
+        cur.execute("SET statement_timeout TO 300000")
+        cur.execute("explain analyse " + sql)
+        conn.close()
+        # print(res)
+
+        print("Query optimized")    
+        
+        return True
+
+    except psycopg2.Error as e:
+        print(e.pgerror)
+        with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/query_result.txt","w") as f:
+            f.writelines(e.pgerror)
+        
+        return False

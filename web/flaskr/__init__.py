@@ -2,7 +2,7 @@ import os
 
 from flask import Flask, request, render_template
 from flask import send_from_directory
-from .backend import run_query
+from .backend import run_query, optimize_query
 
 def create_app(test_config=None):
     # create and configure the app
@@ -51,14 +51,15 @@ def create_app(test_config=None):
     def run_with_pg():
         sql = request.values['sql']
         print ("run with postgresql")
-        run_query(sql, bao_select=False, bao_reward=False)
+        status = run_query(sql, bao_select=False, bao_reward=False)
         return {}
 
     @app.route('/deepo_run', methods=['POST'])
-    def run_with_deepo():
+    def optimize_with_deepo():
         sql = request.values['sql']
-        print ("run with postgresql")
-        run_query(sql, bao_select=True, bao_reward=True)
+        print ("optimized with deepo")
+        # status = run_query(sql, bao_select=True, bao_reward=True)
+        optimize_query(sql)
         return {}
     
     return app
