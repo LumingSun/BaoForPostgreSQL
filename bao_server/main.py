@@ -26,7 +26,6 @@ class BaoModel:
         start = time.time()
         # the last message is the buffer state
         *arms, buffers = messages
-
         # if we don't have a model, default to the PG optimizer
         if self.__current_model is None:
             return PG_OPTIMIZER_INDEX
@@ -93,7 +92,6 @@ class JSONTCPHandler(socketserver.BaseRequestHandler):
             if not str_buf:
                 # no more data, connection is finished.
                 return
-            
             if (null_loc := str_buf.find("\n")) != -1:
                 json_msg = str_buf[:null_loc].strip()
                 str_buf = str_buf[null_loc + 1:]

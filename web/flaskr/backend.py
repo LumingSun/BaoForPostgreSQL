@@ -4,7 +4,7 @@ import csv
 # USE_BAO = True
 # USE_BAO = False
 PG_CONNECTION_STR = "dbname=imdb user=imdb host=localhost"
-
+# TODO: run with pg save pg plan
 def run_query(sql, bao_select=False, bao_reward=False):
 
     try:
@@ -41,6 +41,7 @@ def run_query(sql, bao_select=False, bao_reward=False):
 def optimize_query(sql, bao_select=True, bao_reward=True):
 
     try:
+        sql_count = len(os.listdir("/home/slm/pg_related/BaoForPostgreSQL/query_log/plan_log/"))
         conn = psycopg2.connect(PG_CONNECTION_STR)
         cur = conn.cursor()
         cur.execute(f"SET enable_bao TO {bao_select or bao_reward}")
@@ -51,6 +52,9 @@ def optimize_query(sql, bao_select=True, bao_reward=True):
         cur.execute("explain analyse " + sql)
         conn.close()
         # print(res)
+        sql_count_after = len(os.listdir("/home/slm/pg_related/BaoForPostgreSQL/query_log/plan_log/"))
+        for i in range(sql_count,sql_count_after):
+            os.remove("/home/slm/pg_related/BaoForPostgreSQL/query_log/plan_log/{}.csv".format(i))
 
         print("Query optimized")    
         
