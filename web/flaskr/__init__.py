@@ -2,7 +2,7 @@ import os
 
 from flask import Flask, request, render_template
 from flask import send_from_directory
-
+from .backend import run_query
 
 def create_app(test_config=None):
     # create and configure the app
@@ -39,22 +39,26 @@ def create_app(test_config=None):
             print(query)
             return render_template("sql_tool.html")
 
+    # @app.after_request
+    # def after_request(resp):
+    #     resp.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization,session_id')
+    #     resp.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS,HEAD')
+    #     # 这里不能使用add方法，否则会出现 The 'Access-Control-Allow-Origin' header contains multiple values 的问题
+    #     resp.headers['Access-Control-Allow-Origin'] = '*'
+    #     return resp
 
-    # @app.route('/submit_query',methods=['GET','POST'])
-    # def submit_query():
-    #     print(request.form)
-    #     message = request.form["query"]
-    #     print(message)
-    #     return render_template('plan_history.html')
+    @app.route('/pg_run', methods=['POST'])
+    def run_with_pg():
+        sql = request.values['sql']
+        print ("run with postgresql")
+        run_query(sql, bao_select=False, bao_reward=False)
+        return {}
+
+    @app.route('/deepo_run', methods=['POST'])
+    def run_with_deepo():
+        sql = request.values['sql']
+        print ("run with postgresql")
+        run_query(sql, bao_select=True, bao_reward=True)
+        return {}
     
-    @app.route('/hello')
-    def hello():
-        return 'Hello, World!'
-
-    @app.route('/postmethod', methods = ['POST'])
-    def postmethod():
-        data = request.form['text']
-        print (data)
-
-
     return app
