@@ -36,8 +36,8 @@ class BaoModel:
         res = self.__current_model.predict(arms)
         # save estimated cost of different arms, this is for hint selection page
         # only need to save for current sql
-        with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/arm_cost","w") as f:
-            f.writelines(["%.2f" % x for x in res.flatten()])
+        with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/arm_cost.txt","w") as f:
+            f.writelines("\n".join(["%.2f" % x for x in res.flatten()]))
             
         idx = res.argmin()
 
