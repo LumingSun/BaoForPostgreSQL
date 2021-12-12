@@ -119,9 +119,33 @@
             <div class="btn-toolbar">
                     <button type="button" id="runPg" class="btn btn-secondary" data-loading-text="Loading...">
                         <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        <script>
+                            var data = document.getElementById("sqleditor");
+                            var btn = document.getElementById("runPg");
+                            var ip = 'http://10.77.110.234:5002/';
+                            btn.onclick = function(){
+                                var info = {
+                                    "sql" : data.value,
+                                };
+                                console.log(info);
+                                $.post(ip+"pg_run", info, function(data){alert("Query Submitted")});
+                            }
+                        </script>
                         Run with PostgreSQL
                     </button>
                 <button type="button" id="hint" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter">
+                    <script>
+                        var data = document.getElementById("sqleditor");
+                        var btn = document.getElementById("hint");
+                        var ip = 'http://10.77.110.234:5002/';
+                        btn.onclick = function(){
+                            var info = {
+                                "sql" : data.value,
+                            };
+                            console.log(info);
+                            $.post(ip+"deepo_run", info, function(data){});
+                        }
+                    </script>
                     Optimize it!
                 </button>
                 
