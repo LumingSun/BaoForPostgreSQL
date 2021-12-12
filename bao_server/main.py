@@ -34,7 +34,18 @@ class BaoModel:
         # if we do have a model, make predictions for each plan.
         arms = add_buffer_info_to_plans(buffers, arms)
         res = self.__current_model.predict(arms)
+        # save estimated cost of different arms, this is for hint selection page
+        # only need to save for current sql
+        with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/arm_cost","w") as f:
+            f.writelines(["%.2f" % x for x in res.flatten()])
+            
         idx = res.argmin()
+
+        # save selected plan
+        sql_count = len(os.listdir("/home/slm/pg_related/BaoForPostgreSQL/query_log/plan_log/"))
+        with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/plan_log/{}.csv".format(sql_count),"w") as f:
+            json.dump(arms[idx], f, ensure_ascii=False)
+            
         stop = time.time()
         print("Selected index", idx,
               "after", f"{round((stop - start) * 1000)}ms",
