@@ -26,9 +26,9 @@ def create_app(test_config=None):
         pass
 
     # a simple page that says hello
-    @app.route('/<path:filename>')
-    def serve_static(filename):
-        return render_template(filename)
+    # @app.route('/<path:filename>')
+    # def serve_static(filename):
+    #     return render_template(filename)
     
     @app.route('/',methods=['GET','POST'])
     def home():
@@ -39,13 +39,13 @@ def create_app(test_config=None):
             print(query)
             return render_template("sql_tool.html")
 
-    # @app.after_request
-    # def after_request(resp):
-    #     resp.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization,session_id')
-    #     resp.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS,HEAD')
-    #     # 这里不能使用add方法，否则会出现 The 'Access-Control-Allow-Origin' header contains multiple values 的问题
-    #     resp.headers['Access-Control-Allow-Origin'] = '*'
-    #     return resp
+    @app.after_request
+    def after_request(resp):
+        resp.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization,session_id')
+        resp.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS,HEAD')
+        # 这里不能使用add方法，否则会出现 The 'Access-Control-Allow-Origin' header contains multiple values 的问题
+        resp.headers['Access-Control-Allow-Origin'] = '*'
+        return resp
 
     @app.route('/pg_run', methods=['POST'])
     def run_with_pg():
