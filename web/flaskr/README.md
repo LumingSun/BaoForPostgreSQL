@@ -1,4 +1,4 @@
-## requirements:
+## Requirements:
 ```
 pip install scikit-learn numpy joblib
 pip install torch==1.5.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
@@ -7,7 +7,7 @@ pip install psycopg2-binary
 
 
 
-
+## Run
 ```
 # in bao_server directory, start server:
 run mian.py
