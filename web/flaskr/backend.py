@@ -1,10 +1,11 @@
 import psycopg2
 import os
 import csv
+import json
 # USE_BAO = True
 # USE_BAO = False
 PG_CONNECTION_STR = "dbname=imdb user=imdb host=localhost"
-# TODO: run with pg save pg plan
+
 def run_query(sql, bao_select=False, bao_reward=False):
 
     try:
@@ -23,11 +24,26 @@ def run_query(sql, bao_select=False, bao_reward=False):
             csv_out = csv.writer(f)
             csv_out.writerows(res)
             
-        # NOTE: save sql query
+        #save sql query
         with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/sql.txt","a") as f:
             f.write(sql+"\n")
-        print("Query executed successfully")    
+        print("Query executed successfully")
         
+        # run explain and save plan
+        conn = psycopg2.connect(PG_CONNECTION_STR)
+        cur = conn.cursor()
+        cur.execute(f"SET enable_bao TO {bao_select or bao_reward}")
+        cur.execute(f"SET enable_bao_selection TO {bao_select}")
+        cur.execute(f"SET enable_bao_rewards TO {bao_reward}")
+        cur.execute("SET bao_num_arms TO 5")
+        cur.execute("SET statement_timeout TO 300000")
+        cur.execute("explain " + sql)
+        res = cur.fetchall()
+        conn.close()
+        sql_count = len(os.listdir("/home/slm/pg_related/BaoForPostgreSQL/query_log/plan_log/"))
+        with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/plan_log/{}.csv".format(sql_count),"w") as f:
+            json.dump(res, f, ensure_ascii=False)
+            
         return True
 
     except psycopg2.Error as e:
@@ -49,7 +65,7 @@ def optimize_query(sql, bao_select=True, bao_reward=True):
         cur.execute(f"SET enable_bao_rewards TO {bao_reward}")
         cur.execute("SET bao_num_arms TO 5")
         cur.execute("SET statement_timeout TO 300000")
-        cur.execute("explain analyse " + sql)
+        cur.execute("explain " + sql)
         conn.close()
         # print(res)
         sql_count_after = len(os.listdir("/home/slm/pg_related/BaoForPostgreSQL/query_log/plan_log/"))

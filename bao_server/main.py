@@ -41,9 +41,9 @@ class BaoModel:
         idx = res.argmin()
 
         # save selected plan
-        sql_count = len(os.listdir("/home/slm/pg_related/BaoForPostgreSQL/query_log/plan_log/"))
-        with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/plan_log/{}.csv".format(sql_count),"w") as f:
-            json.dump(arms[idx], f, ensure_ascii=False)
+        # sql_count = len(os.listdir("/home/slm/pg_related/BaoForPostgreSQL/query_log/plan_log/"))
+        # with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/plan_log/{}.csv".format(sql_count),"w") as f:
+        #     json.dump(arms[idx], f, ensure_ascii=False)
             
         stop = time.time()
         print("Selected index", idx,
