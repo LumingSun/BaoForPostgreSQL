@@ -2,6 +2,7 @@ import psycopg2
 import os
 import csv
 import json
+import time
 # USE_BAO = True
 # USE_BAO = False
 PG_CONNECTION_STR = "dbname=imdb user=imdb host=localhost"
@@ -24,6 +25,7 @@ def get_hint_from_file(idx,file_path="/home/slm/pg_related/BaoForPostgreSQL/quer
 def run_query(sql, with_hint, bao_select=False, bao_reward=False,idx=0):
 
     try:
+        start_time = time.time()
         conn = psycopg2.connect(PG_CONNECTION_STR)
         cur = conn.cursor()
         cur.execute(f"SET enable_bao TO {bao_select or bao_reward}")
@@ -38,6 +40,10 @@ def run_query(sql, with_hint, bao_select=False, bao_reward=False,idx=0):
         cur.execute(sql)
         sql_result = cur.fetchall()
         conn.close()
+        
+        with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/total_cost.txt","a") as f:
+            f.write(str(time.time() - start_time)+"\n")
+        
         # print(res)
         with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/query_result.txt","w") as f:
             csv_out = csv.writer(f)
@@ -66,6 +72,8 @@ def run_query(sql, with_hint, bao_select=False, bao_reward=False,idx=0):
         sql_count = len(os.listdir("/home/slm/pg_related/BaoForPostgreSQL/query_log/plan_log/"))
         with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/plan_log/{}.json".format(sql_count),"w") as f:
             json.dump(res, f, ensure_ascii=False)
+        
+
         
         if(with_hint==True):
             _, hints = get_hint_from_file(idx)
