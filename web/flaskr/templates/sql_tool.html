@@ -191,7 +191,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Default</button>
+                    <button type="button" id="default" class="btn btn-secondary" data-dismiss="modal">Default</button>
                     <button type="button" id="submit" class="btn btn-secondary" data-dismiss="modal">Submit</button>
                 </div>
                 </div>
@@ -270,6 +270,7 @@
     var btn=document.getElementById("runPg");
     var btn_2=document.getElementById("hint");
     var btn_3=document.getElementById("submit");
+    var btn_4=document.getElementById("default")
     var ip='http://10.77.110.234:5002/';
     var submit_num="0";
     // var result=document.getElementById("showResult");
@@ -282,7 +283,6 @@
         $.post(ip+"pg_run", 
                info,
                function(res){
-                   alert("Processing...... ")
                    showResult.innerHTML=res.data;
         });
     }
@@ -309,15 +309,28 @@
     }
     btn_3.onclick = function () {
         var info ={
-          "data": 0,
+          "selection": 0,
         };
-        info["data"]=submit_num;
-        $.post(ip+"submit", 
+        info["selection"]=submit_num;
+        $.post(ip+"default", 
                info,
                function(res){
-                   alert("Processing...... ")
+                   showResult.innerHTML=res.data;
         });
     }
+
+    btn_4.onclick = function () {
+        var info ={
+            "selection": "default",
+          };
+        $.post(ip+"default", 
+               info,
+               function(res){
+                   showResult.innerHTML=res.data;
+        });
+    }
+
+
     function change(change) {
 		var oObj = window.event.srcElement;
 		//alert(change.tagName.toLowerCase());

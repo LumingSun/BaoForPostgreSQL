@@ -64,7 +64,6 @@ def create_app(test_config=None):
     def optimize_with_deepo():
         sql = request.values['sql']
         print ("optimized with deepo")
-        # status = run_query(sql, bao_select=True, bao_reward=True)
         status, arms, arm_cost = optimize_query(sql)
         print(arms)
         if(status==True):
@@ -75,4 +74,34 @@ def create_app(test_config=None):
         else:
             return {}, {}
     
+    @app.route('/submit', methods=['POST'])
+    def submit():
+        selected_arm = int(request.values['selection'])-1
+        print("selected arm: ", selected_arm)
+        with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/optimized_query.sql","r") as f:
+            sql = f.read()
+        status, result = run_query(sql,False,False,with_hint=True,idx=selected_arm)
+        if(status==True):
+            return {
+                "data": result
+            }
+        else:
+            return {}
+        
+        
+    @app.route('/default', methods=['POST'])
+    def default():
+        print("selected arm: ", request.values["selection"])
+        with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/optimized_query.sql","r") as f:
+            sql = f.read()
+        status, result = run_query(sql,True,True,with_hint=False)
+        print(result)
+        if(status==True):
+            return {
+                "data": result
+            }
+        else:
+            return {}        
+
+        
     return app
