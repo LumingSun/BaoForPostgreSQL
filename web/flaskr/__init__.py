@@ -65,7 +65,7 @@ def create_app(test_config=None):
         sql = request.values['sql']
         print ("optimized with deepo")
         status, arms, arm_cost = optimize_query(sql)
-        print(arms)
+        # print(arms)
         if(status==True):
             return{
             "info_arm": arms,
@@ -95,7 +95,7 @@ def create_app(test_config=None):
         with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/optimized_query.sql","r") as f:
             sql = f.read()
         status, result = run_query(sql,True,True,with_hint=False)
-        print(result)
+        # print(result)
         if(status==True):
             return {
                 "data": result
