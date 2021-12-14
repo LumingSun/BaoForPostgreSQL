@@ -52,7 +52,7 @@ def create_app(test_config=None):
     def run_with_pg():
         sql = request.values['sql']
         print ("run with postgresql")
-        status, result_json = run_query(sql, bao_select=False, bao_reward=False)
+        status, result_json = run_query(sql, with_hint=False, bao_select=False, bao_reward=False)
         if(status==True):
             return {
                 "data": result_json
@@ -76,11 +76,13 @@ def create_app(test_config=None):
     
     @app.route('/submit', methods=['POST'])
     def submit():
+        with_hint = True
         selected_arm = int(request.values['selection'])-1
         print("selected arm: ", selected_arm)
         with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/optimized_query.sql","r") as f:
             sql = f.read()
-        status, result = run_query(sql,False,False,with_hint=True,idx=selected_arm)
+        status, result = run_query(sql,with_hint=with_hint,bao_select=False,bao_reward=False,idx=selected_arm)
+        print("with hint: ", with_hint)
         if(status==True):
             return {
                 "data": result
@@ -91,10 +93,10 @@ def create_app(test_config=None):
         
     @app.route('/default', methods=['POST'])
     def default():
-        print("selected arm: ", request.values["selection"])
+        print("selected arm: default")
         with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/optimized_query.sql","r") as f:
             sql = f.read()
-        status, result = run_query(sql,True,True,with_hint=False)
+        status, result = run_query(sql,with_hint=False,bao_reward=True,bao_select=True)
         # print(result)
         if(status==True):
             return {

@@ -11,15 +11,17 @@ def get_hint_from_file(idx,file_path="/home/slm/pg_related/BaoForPostgreSQL/quer
     with open(file_path, "r") as f:
         hints = f.readlines()
     selected = hints[idx].strip()
-    hint_set = []
+    hint_set_1 = []
+    hint_set_2 = []
     for arm in selected.split(", "):
         if("disable" in arm):
-            hint_set.append(arm.replace("disable","enable")+"=off")
-    return hint_set
+            hint_set_2.append(arm)
+            hint_set_1.append(arm.replace("disable","enable")+"=off")
+    return hint_set_1, hint_set_2
     
 
 
-def run_query(sql, bao_select=False, bao_reward=False,with_hint=False,idx=0):
+def run_query(sql, with_hint, bao_select=False, bao_reward=False,idx=0):
 
     try:
         conn = psycopg2.connect(PG_CONNECTION_STR)
@@ -30,7 +32,7 @@ def run_query(sql, bao_select=False, bao_reward=False,with_hint=False,idx=0):
         cur.execute("SET bao_num_arms TO 5")
         cur.execute("SET statement_timeout TO 300000")
         if(with_hint==True):
-            hints = get_hint_from_file(idx)
+            hints,_ = get_hint_from_file(idx)
             for hint in hints:
                 cur.execute("SET {}".format(hint))
         cur.execute(sql)
@@ -55,16 +57,33 @@ def run_query(sql, bao_select=False, bao_reward=False,with_hint=False,idx=0):
         cur.execute("SET bao_num_arms TO 5")
         cur.execute("SET statement_timeout TO 300000")
         if(with_hint==True):
-            hints = get_hint_from_file(idx)
+            hints, _ = get_hint_from_file(idx)
             for hint in hints:
                 cur.execute("SET {}".format(hint))
-        cur.execute("explain " + sql)
-        res = cur.fetchall()
+        cur.execute("explain (FORMAT JSON)" + sql)
+        res = cur.fetchall()[0][0][-1]
         conn.close()
         sql_count = len(os.listdir("/home/slm/pg_related/BaoForPostgreSQL/query_log/plan_log/"))
         with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/plan_log/{}.json".format(sql_count),"w") as f:
             json.dump(res, f, ensure_ascii=False)
-            
+        
+        if(with_hint==True):
+            _, hints = get_hint_from_file(idx)
+            with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/optimization_hints.txt","a") as f:
+                f.write(", ".join(hints)+'\n')
+        elif(bao_reward==True):
+            with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/arm_cost.txt","r") as f:
+                costs = f.readlines()
+                costs_f = [float(x) for x in costs]
+            min_idx = costs_f.index(min(costs_f))
+            _, hints = get_hint_from_file(min_idx)
+            with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/optimization_hints.txt","a") as f:
+                f.write(", ".join(hints)+'\n')
+        else:
+            with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/optimization_hints.txt","a") as f:
+                f.write("No optimization\n")
+        
+        
         return True, sql_result
 
     except psycopg2.Error as e:
@@ -101,9 +120,6 @@ def optimize_query(sql, bao_select=True, bao_reward=True):
             arm_cost = f.readlines()  
         with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/optimized_query.sql","w") as f:
             f.write(sql)
-        
-        # arms = json.dumps(arms)    
-        # arm_cost = json.dumps(arm_cost)
     
         return True, arms, arm_cost
 
