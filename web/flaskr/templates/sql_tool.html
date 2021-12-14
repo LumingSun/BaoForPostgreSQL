@@ -119,7 +119,8 @@
             <div class="btn-toolbar">
                     <button type="button" id="runPg" class="btn btn-secondary" data-loading-text="Loading...">
                         <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                        <script>
+                        <!--
+                            <script>
                             var data = document.getElementById("sqleditor");
                             var btn = document.getElementById("runPg");
                             var ip = 'http://10.77.110.234:5002/';
@@ -131,9 +132,11 @@
                                 $.post(ip+"pg_run", info, function(data){alert("Query Submitted")});
                             }
                         </script>
+                    -->
                         Run with PostgreSQL
                     </button>
                 <button type="button" id="hint" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter">
+                    <!--
                     <script>
                         var data = document.getElementById("sqleditor");
                         var btn = document.getElementById("hint");
@@ -146,6 +149,7 @@
                             $.post(ip+"deepo_run", info, function(data){});
                         }
                     </script>
+                -->
                     Optimize it!
                 </button>
                 
@@ -176,60 +180,7 @@
                                     </tr>
                                 </thead>
 
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" class="custom-control-input" name="optionsRadiosinline" id="optionsRadios3" value="option1">
-                                                <label class="radio">
-                                                
-                                                </label>
-                                            </div>
-                                        </td>
-                                        <td>
-                                        <pre>SeqScan(t) SeqScan(mi) SeqScan(mi_idx) 
-HashJoin(mi_idx t) HashJoin(mi_idx t mi) 
-Join Order: (( ( mi_idx t ) mi ))        </pre></td>
-                                        <td>3898.876</td>
-                                        <td>0.93</td>
-                                    </tr>
-
-
-                                    <tr>
-                                        <td>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" class="custom-control-input" name="optionsRadiosinline" id="optionsRadios3" value="option1">
-                                                <label class="radio">
-                                                
-                                                </label>
-                                            </div>
-                                        </td>
-                                        <td>
-                                        <pre>SeqScan(t) SeqScan(mi) SeqScan(mi_idx) 
-HashJoin(t mi_idx) HashJoin(t mi_idx mi) 
-Join Order: (( ( t mi_idx ) mi )) </pre>
-                                        </td>
-                                        <td>3919.251</td>
-                                        <td>0.85</td>
-                                    </tr>
-
-
-                                    <tr>
-                                        <td>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" class="custom-control-input" name="optionsRadiosinline" id="optionsRadios3" value="option1">
-                                                <label class="radio">
-                                                
-                                                </label>
-                                            </div>
-                                        </td>
-                                        <td>
-                                        <pre>SeqScan(t) SeqScan(mi) SeqScan(mi_idx) 
-HashJoin(mi mi_idx) HashJoin(mi mi_idx t) 
-Join Order: (( ( mi mi_idx ) t ))</pre></td>
-                                        <td>4112.942</td>
-                                        <td>0.95</td>
-                                    </tr>
+                                <tbody class="x-cate" id="form">
                                
                                 </tbody>
                             </table>
@@ -241,9 +192,7 @@ Join Order: (( ( mi mi_idx ) t ))</pre></td>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Default</button>
-                    <a href="sql_with_result.html" type="button" class="btn btn-primary"  >
-                        Submit
-                    </a>
+                    <button type="button" id="submit" class="btn btn-secondary" data-dismiss="modal">Submit</button>
                 </div>
                 </div>
             </div>
@@ -257,8 +206,9 @@ Join Order: (( ( mi mi_idx ) t ))</pre></td>
                     <li role="presentation"><a href="#">Message</a></li>
                 </ul>
                 <div class="panel panel-default">
-                    <div class="panel-body">
-                    </div>
+                   
+                    <textarea id="showResult"  class="form-control" rows="5" placeholder="..."></textarea>
+                    
 
                 </div>
                 </div>
@@ -314,3 +264,91 @@ Join Order: (( ( mi mi_idx ) t ))</pre></td>
     </div>
 
 </body>
+
+<script>
+    var data=document.getElementById("sqleditor");
+    var btn=document.getElementById("runPg");
+    var btn_2=document.getElementById("hint");
+    var btn_3=document.getElementById("submit");
+    var ip='http://10.77.110.234:5002/';
+    var submit_num="0";
+    // var result=document.getElementById("showResult");
+    // var form=document.getElementById("form")
+    btn.onclick = function () {
+        var info ={
+          "sql": data.value,
+        };
+        console.log(info);
+        $.post(ip+"pg_run", 
+               info,
+               function(res){
+                   alert("Processing...... ")
+                   showResult.innerHTML=res.data;
+        });
+    }
+
+    btn_2.onclick = function(){
+        var info = {
+            "sql" : data.value,
+        };
+        console.log(info);
+        $.post(ip+"deepo_optimize", info,
+               function(res){
+                   var arm = res.info_arm;   //第一个data代表json,第二个data代表json里的数组或对象
+                   var cost=res.info_cost;
+                      var str1 = "";   //声明str1，防止产生undefined
+                      for (var i = 0; i < arm.length; i++) {   //遍历
+                          str1 += "<tr cate-id='0' fid='0' onMouseOver='over()' onClick='change()' onMouseOut='out()'> "+
+                              "<td>" + i+ "</td>" +   
+                              "<td>" +arm[i]+ "</td>" +    
+                              "<td>" + cost[i]+ "</td>" +    
+                              "<td>" + "xx"+"</td>";   
+                      }
+                      form.innerHTML = str1; 
+        });
+    }
+    btn_3.onclick = function () {
+        var info ={
+          "data": 0,
+        };
+        info["data"]=submit_num;
+        $.post(ip+"submit", 
+               info,
+               function(res){
+                   alert("Processing...... ")
+        });
+    }
+    function change(change) {
+		var oObj = window.event.srcElement;
+		//alert(change.tagName.toLowerCase());
+		if(oObj.tagName.toLowerCase() == "td"){   
+			var oTr = oObj.parentNode;   
+			for(var i=0; i<document.all.form.rows.length; i++)   {   
+				document.all.form.rows[i].style.backgroundColor   =   "";   
+				document.all.form.rows[i].tag = false;   
+			}
+            submit_num=oObj.parentElement.rowIndex;  
+            console.log(submit_num);
+			oTr.style.backgroundColor = "#CCCCFF";   
+			oTr.tag = true;   
+		}
+	}
+    //鼠标点击另外一行时关闭已选行变色
+	function out() {
+		var oObj = event.srcElement;
+		if(oObj.tagName.toLowerCase() == "td"){
+			var oTr = oObj.parentNode;
+			if(!oTr.tag) oTr.style.backgroundColor = "";
+		}
+	}
+	//鼠标移动到选择行上时的行变色
+	function over(){   
+		var oObj = event.srcElement;
+		if(oObj.tagName.toLowerCase() == "td"){   
+		var oTr = oObj.parentNode;
+		if(!oTr.tag) oTr.style.backgroundColor = "#E1E9FD";
+		}
+	}
+
+   
+</script>

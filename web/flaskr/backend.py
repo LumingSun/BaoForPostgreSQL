@@ -23,7 +23,7 @@ def run_query(sql, bao_select=False, bao_reward=False):
         with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/query_result.txt","w") as f:
             csv_out = csv.writer(f)
             csv_out.writerows(res)
-            
+        result_json = json.dumps(res)
         #save sql query
         with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/sql.txt","a") as f:
             f.write(sql+"\n")
@@ -44,14 +44,14 @@ def run_query(sql, bao_select=False, bao_reward=False):
         with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/plan_log/{}.csv".format(sql_count),"w") as f:
             json.dump(res, f, ensure_ascii=False)
             
-        return True
+        return True, result_json
 
     except psycopg2.Error as e:
         print(e.pgerror)
         with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/query_result.txt","w") as f:
             f.writelines(e.pgerror)
         
-        return False
+        return False, json.dumps(None)
         
         
 def optimize_query(sql, bao_select=True, bao_reward=True):
@@ -74,7 +74,15 @@ def optimize_query(sql, bao_select=True, bao_reward=True):
 
         print("Query optimized")    
         
-        return True
+        with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/arms.txt","r") as f:
+            arms = f.readlines()
+        with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/arm_cost.txt","r") as f:
+            arm_cost = f.readlines()  
+        
+        # arms = json.dumps(arms)    
+        # arm_cost = json.dumps(arm_cost)
+    
+        return True, arms, arm_cost
 
     except psycopg2.Error as e:
         print(e.pgerror)

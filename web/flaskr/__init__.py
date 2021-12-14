@@ -3,6 +3,7 @@ import os
 from flask import Flask, request, render_template
 from flask import send_from_directory
 from .backend import run_query, optimize_query
+import json
 
 def create_app(test_config=None):
     # create and configure the app
@@ -26,9 +27,9 @@ def create_app(test_config=None):
         pass
 
     # a simple page that says hello
-    # @app.route('/<path:filename>')
-    # def serve_static(filename):
-    #     return render_template(filename)
+    @app.route('/<path:filename>')
+    def serve_static(filename):
+        return render_template(filename)
     
     @app.route('/',methods=['GET','POST'])
     def home():
@@ -51,15 +52,27 @@ def create_app(test_config=None):
     def run_with_pg():
         sql = request.values['sql']
         print ("run with postgresql")
-        status = run_query(sql, bao_select=False, bao_reward=False)
-        return {}
+        status, result_json = run_query(sql, bao_select=False, bao_reward=False)
+        if(status==True):
+            return {
+                "data": result_json
+            }
+        else:
+            return {}
 
-    @app.route('/deepo_run', methods=['POST'])
+    @app.route('/deepo_optimize', methods=['POST'])
     def optimize_with_deepo():
         sql = request.values['sql']
         print ("optimized with deepo")
         # status = run_query(sql, bao_select=True, bao_reward=True)
-        optimize_query(sql)
-        return {}
+        status, arms, arm_cost = optimize_query(sql)
+        print(arms)
+        if(status==True):
+            return{
+            "info_arm": arms,
+            "info_cost": arm_cost
+        }
+        else:
+            return {}, {}
     
     return app
