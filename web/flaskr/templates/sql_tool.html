@@ -312,7 +312,7 @@
           "selection": 0,
         };
         info["selection"]=submit_num;
-        $.post(ip+"default", 
+        $.post(ip+"submit", 
                info,
                function(res){
                    showResult.innerHTML=res.data;
