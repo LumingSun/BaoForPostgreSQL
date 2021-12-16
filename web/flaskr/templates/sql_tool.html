@@ -119,37 +119,9 @@
             <div class="btn-toolbar">
                     <button type="button" id="runPg" class="btn btn-secondary" data-loading-text="Loading...">
                         <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                        <!--
-                            <script>
-                            var data = document.getElementById("sqleditor");
-                            var btn = document.getElementById("runPg");
-                            var ip = 'http://10.77.110.234:5002/';
-                            btn.onclick = function(){
-                                var info = {
-                                    "sql" : data.value,
-                                };
-                                console.log(info);
-                                $.post(ip+"pg_run", info, function(data){alert("Query Submitted")});
-                            }
-                        </script>
-                    -->
                         Run with PostgreSQL
                     </button>
                 <button type="button" id="hint" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter">
-                    <!--
-                    <script>
-                        var data = document.getElementById("sqleditor");
-                        var btn = document.getElementById("hint");
-                        var ip = 'http://10.77.110.234:5002/';
-                        btn.onclick = function(){
-                            var info = {
-                                "sql" : data.value,
-                            };
-                            console.log(info);
-                            $.post(ip+"deepo_run", info, function(data){});
-                        }
-                    </script>
-                -->
                     Optimize it!
                 </button>
                 
@@ -206,7 +178,7 @@
                     <li role="presentation"><a href="#">Message</a></li>
                 </ul>
                 <div class="panel panel-default">
-                   
+                    <div id="loading"></div>
                     <textarea id="showResult"  class="form-control" rows="5" placeholder="..."></textarea>
                     
 
@@ -280,10 +252,23 @@
           "sql": data.value,
         };
         console.log(info);
-        $.post(ip+"pg_run", 
-               info,
-               function(res){
-                   showResult.innerHTML=res.data;
+        $.ajax({
+            url: ip+"pg_run",
+            type:'post',
+            data: info,
+            dataType:'json' ,
+            beforeSend:function(){
+                showResult.innerHTML="";
+                $("#loading").html("<img src='/static/loading.gif' />"); 
+                
+            },
+            success:function(res){
+                $("#loading").empty();
+                showResult.innerHTML=res.data;
+            },
+            error:function(){
+                alert("server error");
+            }     
         });
     }
 
@@ -312,10 +297,24 @@
           "selection": 0,
         };
         info["selection"]=submit_num;
-        $.post(ip+"submit", 
-               info,
-               function(res){
-                   showResult.innerHTML=res.data;
+
+        $.ajax({  
+            url: ip+"submit",
+            type:'post',
+            data: info,
+            dataType:'json' ,
+            beforeSend:function(){
+                showResult.innerHTML="";
+                $("#loading").html("<img src='/static/loading.gif' />"); 
+                
+            },
+            success:function(res){
+                $("#loading").empty();
+                showResult.innerHTML=res.data;
+            },
+            error:function(){
+                alert("server error");
+            } 
         });
     }
 
@@ -323,10 +322,23 @@
         var info ={
             "selection": "default",
           };
-        $.post(ip+"default", 
-               info,
-               function(res){
-                   showResult.innerHTML=res.data;
+          $.ajax({            
+            url: ip+"default",
+            type:'post',
+            data: info,
+            dataType:'json' ,
+            beforeSend:function(){
+                showResult.innerHTML="";
+                $("#loading").html("<img src='/static/loading.gif' />"); 
+                
+            },
+            success:function(res){
+                $("#loading").empty();
+                showResult.innerHTML=res.data;
+            },
+            error:function(){
+                alert("server error");
+            }             
         });
     }
 

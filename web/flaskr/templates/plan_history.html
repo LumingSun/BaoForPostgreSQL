@@ -20,6 +20,24 @@
       <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
     <![endif]-->
+    <style>
+        .clamp {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            line-clamp: 1;
+            -webkit-line-clamp: 1;
+          }
+          .clamp-4 {
+            line-clamp: 4!important;
+            -webkit-line-clamp: 4!important;
+          }
+          .clamp-3 {
+            line-clamp: 3!important;
+            -webkit-line-clamp: 3!important;
+          }
+    </style>
 </head>
 
 <body>
@@ -74,39 +92,7 @@
                                     </tr>
                                 </thead>
 
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="custom-control custom-radio">
-                                                <input type="checkbox" class="custom-control-input" value="option1">                                                
-                                                </label>
-                                            </div>
-                                        </td>
-                                        <td> select * from title t, movie_info mi, movie_info_idx mi_idx where t.id=mi.movie_id and t.id=mi_idx.movie_id and mi.info_type_id > 16 and mi_idx.info_type_id = 100;</td>
-
-                                        <td>
-                                        <pre> No optimization
-                                        </pre></td>
-                                        <td>6381.298ms</td>
-                                    </tr>
-
-
-                                    <tr>
-                                        <td>
-                                            <div class="custom-control custom-radio">
-                                                <input type="checkbox" class="custom-control-input" nvalue="option2">                                                
-                                                </label>
-                                            </div>
-                                        </td>
-                                        <td> select * from title t, movie_info mi, movie_info_idx mi_idx where t.id=mi.movie_id and t.id=mi_idx.movie_id and mi.info_type_id > 16 and mi_idx.info_type_id = 100;</td>
-
-                                        <td>
-                                        <pre>SeqScan(t) SeqScan(mi) SeqScan(mi_idx) 
-HashJoin(mi_idx t) HashJoin(mi_idx t mi) 
-Join Order: (( ( mi_idx t ) mi )) */ </pre>
-                                        </td>
-                                        <td>3527.034ms</td>
-                                    </tr>
+                                <tbody class="x-cate" id="form">
                                    
                                 </tbody>
                             </table>
@@ -118,12 +104,7 @@ Join Order: (( ( mi_idx t ) mi )) */ </pre>
 
                 <div class="btn-toolbar">
             
-                <a href="optimization_analysis.html" type="button" class="btn btn-primary pull-right"  >
-                
-                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                    
-                    Compare them!
-                    </a>
+                    <button type="button" id="submit" class="btn btn-secondary" data-dismiss="modal" style="background-color:#337AB7;color:#fff">Compare them！</button>
                 </div>
 
             </div>
@@ -134,3 +115,109 @@ Join Order: (( ( mi_idx t ) mi )) */ </pre>
 </body>
 
 </html>
+
+<script>
+    var btn=document.getElementById("submit");
+    var ip='http://10.77.110.234:5002/';
+
+    var selection=0;
+    // var result=document.getElementById("showResult");
+    // var form=document.getElementById("form")
+    $.ajax({
+        url:ip+"queryHistory", 
+        type:'post',
+        data:"",
+        beforeSend:function(){
+                
+        },
+        success:function(res){
+            var sql = res.info_sql;   //第一个data代表json,第二个data代表json里的数组或对象
+                   var cost=res.info_cost;
+                   var hints=res.info_hints;
+                      var str1 = "";   //声明str1，防止产生undefined
+                      for (var i = 0; i < sql.length; i++) {   //遍历
+                          str1 += "<tr cate-id='0' fid='0' onMouseOver='over()' onClick='change()' onMouseOut='out()'> "+
+                              "<td>" + i+ "</td>" +   
+                              "<td> <textarea cols='80' rows='5'>" +sql[i]+"</textarea> </td>" + 
+                              "<td>" + hints[i]+ "</td>" +    
+                              "<td>" + cost[i]+"</td>";   
+                    }
+                     form.innerHTML = str1; 
+        },
+        error:function(){
+                alert("server error");
+        }
+
+
+
+    });
+
+    btn.onclick = function () {
+        var index = new Array();
+        for(var i=0; i<document.all.form.rows.length; i++)   {   
+            if(document.all.form.rows[i].tag ){
+                index.push(i);
+            }		
+	    }   
+        var data=""
+        for(var i=0;i<index.length;i++){
+            data+=index[i]+",";
+        }
+        var info={
+            "data":data,
+        }
+        console.log(info);
+        $.ajax({    
+            url: ip+"compare",
+            type:'post',
+            data: info,
+            dataType:'json' ,
+            success:function(res){
+                window.location.href='optimization_analysis.html'
+            },
+            error:function(){
+                alert("server error");
+            }
+    })}
+
+    for(var i=0; i<document.all.form.rows.length; i++)   {   
+				document.all.form.rows[i].style.backgroundColor   =   "";   
+				document.all.form.rows[i].tag = false;   
+	}
+
+    function change(change) {
+		var oObj = window.event.srcElement;
+		console.log(selection)
+		if(oObj.tagName.toLowerCase() == "td"){   
+			var oTr = oObj.parentNode;   
+            if(!oTr.tag&&selection<2){
+                oTr.style.backgroundColor = "#CCCCFF";   
+			    oTr.tag = true;   
+                selection+=1;
+            }
+            else if(oTr.tag){
+                oTr.style.backgroundColor = ""; 
+                oTr.tag = false;
+                selection -=1;
+            }
+		}
+	}
+    //鼠标点击另外一行时关闭已选行变色
+	function out() {
+		var oObj = event.srcElement;
+		if(oObj.tagName.toLowerCase() == "td"){
+			var oTr = oObj.parentNode;
+			if(!oTr.tag) oTr.style.backgroundColor = "";
+		}
+	}
+	//鼠标移动到选择行上时的行变色
+	function over(){   
+		var oObj = event.srcElement;
+		if(oObj.tagName.toLowerCase() == "td"){   
+		var oTr = oObj.parentNode;
+		if(!oTr.tag) oTr.style.backgroundColor = "#E1E9FD";
+		}
+	}
+
+   
+</script>

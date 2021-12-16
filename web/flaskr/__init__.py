@@ -2,6 +2,7 @@ import os
 
 from flask import Flask, request, render_template
 from flask import send_from_directory
+from flask.templating import render_template_string
 from .backend import run_query, optimize_query
 import json
 
@@ -48,6 +49,11 @@ def create_app(test_config=None):
         resp.headers['Access-Control-Allow-Origin'] = '*'
         return resp
 
+    
+    @app.route('/favicon.ico') 
+    def favicon(): 
+        return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
     @app.route('/pg_run', methods=['POST'])
     def run_with_pg():
         sql = request.values['sql']
@@ -90,7 +96,41 @@ def create_app(test_config=None):
         else:
             return {}
         
+    @app.route('/compare',methods=['POST'])
+    def compare():
+        selected_history = request.values['data']
+        selected_history = [x for x in selected_history.split(",")[:2]]
+        with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/comparison_selection.txt","w") as f:
+            f.writelines("\n".join(selected_history))
         
+        # # TODO: assert there are only two selected history
+        print(selected_history)
+        # with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/total_cost.txt","r") as f:
+        #     info_cost = f.readlines()
+        # with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/sql.txt","r") as f:
+        #     info_sql = f.readlines()
+        # with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/optimization_hints.txt","r") as f:
+        #     info_hints = f.readlines()
+        # cost_1, cost_2 = info_cost[selected_history[0]],info_cost[selected_history[1]]
+        # sql_1, sql_2 = info_sql[selected_history[0]],info_sql[selected_history[1]]
+        # assert sql_1==sql_2, "not same query"
+        # hint_1, hint_2 = info_hints[selected_history[0]],info_hints[selected_history[1]]
+        # with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/plan_log/{}.json".format(selected_history[0]),"r") as f:
+        #     plan_1 = json.load(f)
+        # with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/plan_log/{}.json".format(selected_history[1]),"r") as f:
+        #     plan_2 = json.load(f)
+        # res = {
+        #     "cost_1":cost_1,
+        #     "cost_2":cost_2,
+        #     "sql":sql_1,
+        #     "hint_1":hint_1,
+        #     "hint_2":hint_2,
+        #     "plan_1":plan_1,
+        #     "plan_2":plan_2
+        # }
+        # return render_template("optimization_analysis.html",data=res)
+        return {}
+    
     @app.route('/default', methods=['POST'])
     def default():
         print("selected arm: default")
@@ -105,5 +145,50 @@ def create_app(test_config=None):
         else:
             return {}        
 
+    @app.route('/queryHistory',methods=['POST'])
+    def queryHistory():
+        with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/total_cost.txt","r") as f:
+            info_cost = f.readlines()
+        with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/sql.txt","r") as f:
+            info_sql = f.readlines()
+        with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/optimization_hints.txt","r") as f:
+            info_hints = f.readlines()
+        return{
+            "info_sql": info_sql,
+            "info_cost": info_cost,
+            "info_hints": info_hints
+        }
+    
+    @app.route('/optimization_analysis',methods=['POST'])
+    def optimization_analysis():
+        with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/comparison_selection.txt","r") as f:
+            selection = f.readlines()
+        selected_history = [int(x) for x in selection]
+        # # TODO: assert there are only two selected history
+        print(selected_history)
+        with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/total_cost.txt","r") as f:
+            info_cost = f.readlines()
+        with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/sql.txt","r") as f:
+            info_sql = f.readlines()
+        with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/optimization_hints.txt","r") as f:
+            info_hints = f.readlines()
+        cost_1, cost_2 = info_cost[selected_history[0]],info_cost[selected_history[1]]
+        sql_1, sql_2 = info_sql[selected_history[0]],info_sql[selected_history[1]]
+        assert sql_1==sql_2, "not same query"
+        hint_1, hint_2 = info_hints[selected_history[0]],info_hints[selected_history[1]]
+        with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/plan_log/{}.json".format(selected_history[0]),"r") as f:
+            plan_1 = f.read()
+        with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/plan_log/{}.json".format(selected_history[1]),"r") as f:
+            plan_2 = f.read()
+        res = {
+            "cost_1":cost_1,
+            "cost_2":cost_2,
+            "sql":sql_1,
+            "hint_1":hint_1,
+            "hint_2":hint_2,
+            "plan_1":plan_1,
+            "plan_2":plan_2
+        }
+        return res
         
     return app

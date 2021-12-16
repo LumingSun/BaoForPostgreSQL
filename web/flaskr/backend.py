@@ -51,7 +51,7 @@ def run_query(sql, with_hint, bao_select=False, bao_reward=False,idx=0):
             
         #save sql query
         with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/sql.txt","a") as f:
-            f.write(sql.replace("\n","").strip()+"\n")
+            f.write(sql.replace("\n"," ").strip()+"\n")
         print("Query executed successfully")
         
         # run explain and save plan
