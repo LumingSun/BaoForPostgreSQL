@@ -20,3 +20,4 @@ dist/
 build/
 *.egg-info/
 web/flaskr/__pycache__/
+web/*.pem
