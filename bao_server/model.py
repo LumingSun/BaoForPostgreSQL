@@ -188,7 +188,6 @@ class BaoRegression:
         
         self.__net.eval()
         preds = np.array([self.__net(X).cpu().detach().numpy().flatten() for i in range(sample_nbr)])
-        pred = np.mean(preds,axis=0,keepdims=True)
-        
+        pred = np.mean(preds,axis=0).reshape(-1,1)
         return self.__pipeline.inverse_transform(pred), self.__pipeline.inverse_transform(preds)
 
