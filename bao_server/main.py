@@ -10,6 +10,7 @@ import train
 import baoctl
 import math
 import reg_blocker
+import numpy as np
 from constants import (PG_OPTIMIZER_INDEX, DEFAULT_MODEL_PATH,
                        OLD_MODEL_PATH, TMP_MODEL_PATH)
 
@@ -21,7 +22,26 @@ def add_buffer_info_to_plans(buffer_info, plans):
 class BaoModel:
     def __init__(self):
         self.__current_model = None
-
+        
+    def confidence(self, preds, sample_nbr=100, std_multiplier=2):
+        mean = np.mean(preds, axis=0)
+        std = np.std(preds, axis=0)
+        ci_upper = mean + (std_multiplier * std)
+        ci_lower = mean - (std_multiplier * std)
+        # print("mean: ", mean)
+        # print("std: ",std)
+        # print("preds: ", preds)
+        # print("upper: ", ci_upper)
+        # print("lower: ", ci_lower)
+        in_confidence = []
+        for dim in range(5):
+            cnt = 0
+            for pred in preds:
+                if(pred[dim]<=ci_upper[dim] and pred[dim]>=ci_lower[dim]):
+                    cnt += 1
+            in_confidence.append(cnt/sample_nbr)
+        return in_confidence
+    
     def select_plan(self, messages):
         start = time.time()
         # the last message is the buffer state
@@ -32,14 +52,18 @@ class BaoModel:
 
         # if we do have a model, make predictions for each plan.
         arms = add_buffer_info_to_plans(buffers, arms)
-        res = self.__current_model.predict(arms)
+        res, preds = self.__current_model.predict(arms)
         # save estimated cost of different arms, this is for hint selection page
         # only need to save for current sql
         with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/arm_cost.txt","w") as f:
             f.writelines("\n".join(["%.2f" % x for x in res.flatten()]))
-            
-        idx = res.argmin()
 
+        idx = res.argmin()
+        
+        confidence = self.confidence(preds)
+        with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/confidence.txt","w") as f:
+            f.writelines("\n".join(["%.2f" % x for x in confidence]))
+            
         # save selected plan
         # sql_count = len(os.listdir("/home/slm/pg_related/BaoForPostgreSQL/query_log/plan_log/"))
         # with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/plan_log/{}.csv".format(sql_count),"w") as f:
@@ -62,7 +86,7 @@ class BaoModel:
 
         # if we do have a model, make predictions for each plan.
         plans = add_buffer_info_to_plans(buffers, [plan])
-        res = self.__current_model.predict(plans)
+        res, _ = self.__current_model.predict(plans)
         return res[0][0]
     
     def load_model(self, fp):

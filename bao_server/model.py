@@ -52,7 +52,7 @@ def collate(x):
         trees.append(tree)
         targets.append(target)
 
-    targets = torch.tensor(targets)
+    targets = torch.tensor(np.array(targets))
     return trees, targets
 
 class BaoRegression:
@@ -156,8 +156,9 @@ class BaoRegression:
             for x, y in dataset:
                 if CUDA:
                     y = y.cuda()
-                y_pred = self.__net(x)
-                loss = loss_fn(y_pred, y)
+                # y_pred = self.__net(x)
+                # loss = loss_fn(y_pred, y)
+                loss = self.__net.sample_elbo(inputs=x, labels=y, criterion=loss_fn, sample_nbr=3)
                 loss_accum += loss.item()
         
                 optimizer.zero_grad()
@@ -178,7 +179,7 @@ class BaoRegression:
         else:
             self.__log("Stopped training after max epochs")
 
-    def predict(self, X):
+    def predict(self, X, sample_nbr=100):
         if not isinstance(X, list):
             X = [X]
         X = [json.loads(x) if isinstance(x, str) else x for x in X]
@@ -186,6 +187,8 @@ class BaoRegression:
         X = self.__tree_transform.transform(X)
         
         self.__net.eval()
-        pred = self.__net(X).cpu().detach().numpy()
-        return self.__pipeline.inverse_transform(pred)
+        preds = np.array([self.__net(X).cpu().detach().numpy().flatten() for i in range(sample_nbr)])
+        pred = np.mean(preds,axis=0,keepdims=True)
+        
+        return self.__pipeline.inverse_transform(pred), self.__pipeline.inverse_transform(preds)
 
