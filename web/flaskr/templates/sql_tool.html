@@ -281,13 +281,14 @@
                function(res){
                    var arm = res.info_arm;   //第一个data代表json,第二个data代表json里的数组或对象
                    var cost=res.info_cost;
+                   var confidence = res.info_confidence;
                       var str1 = "";   //声明str1，防止产生undefined
                       for (var i = 0; i < arm.length; i++) {   //遍历
                           str1 += "<tr cate-id='0' fid='0' onMouseOver='over()' onClick='change()' onMouseOut='out()'> "+
                               "<td>" + i+ "</td>" +   
                               "<td>" +arm[i]+ "</td>" +    
                               "<td>" + cost[i]+ "</td>" +    
-                              "<td>" + "xx"+"</td>";   
+                              "<td>" + confidence[i]+"</td>";   
                       }
                       form.innerHTML = str1; 
         });

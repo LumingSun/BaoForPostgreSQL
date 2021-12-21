@@ -60,7 +60,7 @@ class BaoModel:
 
         idx = res.argmin()
         
-        confidence = self.confidence(preds)
+        confidence = self.confidence(preds, std_multiplier=1.5)
         with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/confidence.txt","w") as f:
             f.writelines("\n".join(["%.2f" % x for x in confidence]))
             

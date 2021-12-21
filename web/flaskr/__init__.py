@@ -70,12 +70,13 @@ def create_app(test_config=None):
     def optimize_with_deepo():
         sql = request.values['sql']
         print ("optimized with deepo")
-        status, arms, arm_cost = optimize_query(sql)
+        status, arms, arm_cost, arm_confidence = optimize_query(sql)
         # print(arms)
         if(status==True):
             return{
             "info_arm": arms,
-            "info_cost": arm_cost
+            "info_cost": arm_cost,
+            "info_confidence": arm_confidence
         }
         else:
             return {}, {}
