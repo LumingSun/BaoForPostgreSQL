@@ -126,10 +126,12 @@ def optimize_query(sql, bao_select=True, bao_reward=True):
             arms = f.readlines()
         with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/arm_cost.txt","r") as f:
             arm_cost = f.readlines()  
+        with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/confidence.txt","r") as f:
+            arm_confidence = f.readlines()  
         with open("/home/slm/pg_related/BaoForPostgreSQL/query_log/optimized_query.sql","w") as f:
             f.write(sql)
     
-        return True, arms, arm_cost
+        return True, arms, arm_cost, arm_confidence
 
     except psycopg2.Error as e:
         print(e.pgerror)

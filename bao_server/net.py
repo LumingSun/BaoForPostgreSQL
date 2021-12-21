@@ -3,6 +3,9 @@ from TreeConvolution.tcnn import BinaryTreeConv, TreeLayerNorm
 from TreeConvolution.tcnn import TreeActivation, DynamicPooling
 from TreeConvolution.util import prepare_trees
 
+from blitz.utils import variational_estimator
+from blitz.modules import BayesianLinear
+
 def left_child(x):
     if len(x) != 3:
         return None
@@ -16,6 +19,7 @@ def right_child(x):
 def features(x):
     return x[0]
 
+@variational_estimator
 class BaoNet(nn.Module):
     def __init__(self, in_channels):
         super(BaoNet, self).__init__()
@@ -34,7 +38,8 @@ class BaoNet(nn.Module):
             DynamicPooling(),
             nn.Linear(64, 32),
             nn.LeakyReLU(),
-            nn.Linear(32, 1)
+            BayesianLinear(32, 1)
+            # nn.Linear(32, 1)
         )
 
     def in_channels(self):
